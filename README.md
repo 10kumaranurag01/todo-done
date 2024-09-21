@@ -135,5 +135,3 @@ For any inquiries, please contact [kumarkas1515@gmail.com](kumarkas1515@gmail.co
 ## Backend Repository Link
 
 [https://github.com/10kumaranurag01/todo-done-express](https://github.com/10kumaranurag01/todo-done-express).
-
----
