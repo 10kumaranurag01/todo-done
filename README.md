@@ -13,7 +13,6 @@ A modern task management app that uses a Kanban-style board to help users organi
   - [Environment Variables](#environment-variables)
   - [API Endpoints](#api-endpoints)
   - [Contributing](#contributing)
-  - [License](#license)
   - [Contact](#contact)
   - [Backend Repository Link](#backend-repository-link)
 
@@ -108,12 +107,6 @@ Contributions are welcome! Please follow these steps:
 3. Commit your changes (`git commit -m 'Add some feature'`).
 4. Push to the branch (`git push origin feature-branch`).
 5. Open a pull request.
-
----
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ---
 
