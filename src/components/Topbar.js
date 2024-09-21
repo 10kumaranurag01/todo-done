@@ -2,7 +2,6 @@
 
 import Link from 'next/link'
 import { useState, useEffect } from 'react'
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
 import { useRouter } from 'next/navigation'
 import {
@@ -36,7 +35,7 @@ export default function Topbar() {
             setToken(storedToken);
             fetchTasks(); // Fetch tasks on first render
         } else {
-            router.push('/auth/login');
+            router.push('/');
         }
 
     }, [router, token])
@@ -48,16 +47,6 @@ export default function Topbar() {
         emptyTasks() // empty the tasks in context
         toast({ description: "You’ve successfully logged out. See you next time! 😊" })
         router.push('/auth/login')
-    }
-
-    // JWT decoding function
-    function parseJwt(token) {
-        try {
-            return JSON.parse(atob(token.split('.')[1]))
-        } catch (error) {
-            console.error("Invalid token")
-            return null
-        }
     }
 
     return (
@@ -77,7 +66,7 @@ export default function Topbar() {
                             <Button variant="outline">Log In</Button>
                         </Link>
                         <Link href="/auth/register">
-                            <Button variant="outline">Register</Button>
+                            <Button variant="secondary">Sign Up</Button>
                         </Link>
                     </>
                 )}
