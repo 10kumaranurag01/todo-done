@@ -12,7 +12,6 @@ A modern task management app that uses a Kanban-style board to help users organi
   - [Usage](#usage)
   - [Environment Variables](#environment-variables)
   - [API Endpoints](#api-endpoints)
-  - [Screenshots](#screenshots)
   - [Contributing](#contributing)
   - [License](#license)
   - [Contact](#contact)
@@ -97,14 +96,6 @@ NEXT_PUBLIC_BASE_URL=YOUR_BACKEND_API_URL
 | POST   | `/api/todos`   | Add a new todo           |
 | PUT    | `/api/todos/:id`| Update an existing todo |
 | DELETE | `/api/todos/:id`| Delete a todo           |
-
----
-
-## Screenshots
-
-![Kanban Board](https://ibb.co/x59wpZp)
-
-*Example of the task board with todos categorized into columns.*
 
 ---
 
