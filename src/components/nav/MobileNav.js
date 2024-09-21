@@ -19,7 +19,7 @@ const MobileNav = ({ selectedPage, setSelectedPage, isMobileMenuOpen, setMobileM
                             variant={`${selectedPage === 'todos' ? 'secondary' : 'default'}`}
                             onClick={() => setSelectedPage('todos')}
                         >
-                            # Todos List
+                            # To-Dos List
                         </Button>
                         <Button
                             className={`w-full text-left py-2 px-4 mt-2`}
