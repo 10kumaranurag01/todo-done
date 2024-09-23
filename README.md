@@ -11,6 +11,7 @@ A modern task management app that uses a Kanban-style board to help users organi
   - [Installation](#installation)
   - [Usage](#usage)
   - [Environment Variables](#environment-variables)
+  - [Test User Credentials](#test-user-credentials)
   - [API Endpoints](#api-endpoints)
   - [Contributing](#contributing)
   - [Contact](#contact)
@@ -83,6 +84,17 @@ To run this project, you need to set the following environment variables in a `.
 
 ```
 NEXT_PUBLIC_BASE_URL=YOUR_BACKEND_API_URL
+```
+
+---
+
+## Test User Credentials
+
+To test this project, you can enter the following test credentials:
+
+```
+username=testuser1
+password=123456
 ```
 
 ---
