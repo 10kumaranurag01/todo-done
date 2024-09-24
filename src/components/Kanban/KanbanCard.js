@@ -8,8 +8,11 @@ import {
     CardHeader,
     CardTitle,
 } from "@/components/ui/card";
+import { formatDate } from "@/utils/formatDate";
 
 const KanbanCard = ({ task }) => {
+    const formattedDate = formatDate(task.dueDate);
+
     // Configure sensors to handle mouse, touch, and pointer events
     const sensors = useSensors(
         useSensor(MouseSensor),
@@ -33,26 +36,6 @@ const KanbanCard = ({ task }) => {
         position: isDragging ? 'absolute' : 'relative',
         zIndex: isDragging ? 1000 : 'auto',
     };
-
-    // Format the task's due date
-    const TodoIsoDate = task.dueDate;
-    const date = new Date(TodoIsoDate);
-
-    const getOrdinalSuffix = (day) => {
-        if (day > 3 && day < 21) return 'th'; // For days 11th to 19th
-        switch (day % 10) {
-            case 1: return 'st';
-            case 2: return 'nd';
-            case 3: return 'rd';
-            default: return 'th';
-        }
-    };
-
-    // Extract day, month, and year for date formatting
-    const day = date.getDate();
-    const month = date.toLocaleString('default', { month: 'short' }); // Short month name
-    const year = date.getFullYear();
-    const formattedDate = `${day}${getOrdinalSuffix(day)} ${month} ${year}`;
 
     return (
         <Card
