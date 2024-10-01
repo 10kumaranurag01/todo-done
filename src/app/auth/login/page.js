@@ -113,8 +113,13 @@ export default function LoginPage() {
                             <div className="flex flex-col space-y-3">
                             <Button type="submit">Login</Button>
                             {loginstatus && (
-                            <Button type="button" variant="secondary" onClick={handelRegister}>Register</Button>
-                            )}
+    <>
+      <p className="mt-4 text-xs text-center text-gray-500">Don't have an account? Register by clicking below</p>
+      <Button type="button" variant="secondary" onClick={handelRegister}>
+        Register
+      </Button>
+    </>
+  )}
                             </div>
                         </form>
                     </Form>
