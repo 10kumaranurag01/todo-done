@@ -14,6 +14,7 @@ A modern task management app that uses a Kanban-style board to help users organi
   - [Test User Credentials](#test-user-credentials)
   - [API Endpoints](#api-endpoints)
   - [Contributing](#contributing)
+  - [to contribute to this project.](#to-contribute-to-this-project)
   - [Contact](#contact)
   - [Backend Repository Link](#backend-repository-link)
 
@@ -112,14 +113,8 @@ password=123456
 
 ## Contributing
 
-Contributions are welcome! Please follow these steps:
-
-1. Fork the repository.
-2. Create a new branch (`git checkout -b feature-branch`).
-3. Commit your changes (`git commit -m 'Add some feature'`).
-4. Push to the branch (`git push origin feature-branch`).
-5. Open a pull request.
-
+Check  out the [CONTRIBUTING.md](CONTRIBUTING.md) file for guidelines on how
+to contribute to this project.
 ---
 
 ## Contact
