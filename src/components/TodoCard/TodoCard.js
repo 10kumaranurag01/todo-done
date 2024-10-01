@@ -9,14 +9,14 @@ import {
 import AddEditTodoDialog from "../AddEditTodoDialog"
 import { useTasks } from '../../lib/context/TaskContext';
 import { useToast } from "@/hooks/use-toast"
-import axios from "axios"
 import DeleteTodo from "./DeleteTodo";
 import { formatDate } from "@/utils/formatDate";
+import { useAxios } from "@/lib/axiosInstance";
 
 const TodoCard = ({ todo }) => {
     const { fetchTasks } = useTasks();
     const { toast } = useToast()
-    const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
+    const axios = useAxios()
     const formattedDate = formatDate(todo.dueDate)
 
     const handleDelete = async () => {
@@ -26,7 +26,7 @@ const TodoCard = ({ todo }) => {
             const token = localStorage.getItem("token");
             const todoId = todo._id;
 
-            await axios.delete(`${BASE_URL}/api/tasks/${todoId}`, {
+            await axios.delete(`/api/tasks/${todoId}`, {
                 headers: { Authorization: `${token}` },
 
             });

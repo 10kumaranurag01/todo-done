@@ -2,8 +2,10 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster"
 import Topbar from "@/components/Topbar";
+import LoadingScreen from "@/components/LoadingScreen/LoadingScreen";
 import StoreProvider from './StoreProvider';
 import { TaskProvider } from "@/lib/context/TaskContext";
+import { LoadingProvider } from "@/lib/context/LoadingContext";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -28,13 +30,16 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <StoreProvider>
-          <TaskProvider>
-            <Topbar />
-            {children}
-            <Toaster />
-          </TaskProvider>
-        </StoreProvider>
+        <LoadingProvider>
+          <StoreProvider>
+            <TaskProvider>
+              <Topbar />
+              {children}
+              <LoadingScreen />
+              <Toaster />
+            </TaskProvider>
+          </StoreProvider>
+        </LoadingProvider>
       </body>
     </html>
   );

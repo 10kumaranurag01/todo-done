@@ -17,9 +17,10 @@ import DatePicker from "./TodoCard/DatePicker";
 import PrioritySelector from "./TodoCard/PrioritySelector";
 import StatusSelector from "./TodoCard/StatusSelector";
 import Image from "next/image";
-import editIcon from "../assets/icons8-edit.svg"; import axios from "axios";
+import editIcon from "../assets/icons8-edit.svg";
 import { useToast } from "@/hooks/use-toast"
 import { useTasks } from '../lib/context/TaskContext';
+import { useAxios } from "@/lib/axiosInstance";
 
 const AddEditTodoDialog = ({ todo, btnText }) => {
     const [initialTodo, setInitialTodo] = useState({
@@ -36,7 +37,7 @@ const AddEditTodoDialog = ({ todo, btnText }) => {
     const [priority, setPriority] = useState("");
     const { toast } = useToast()
     const { fetchTasks } = useTasks();
-    const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
+    const axios = useAxios();
 
     useEffect(() => {
         if (todo) {
@@ -64,13 +65,13 @@ const AddEditTodoDialog = ({ todo, btnText }) => {
 
             if (todo) {
                 // Edit todo
-                await axios.put(`${BASE_URL}/api/tasks/${todo._id}`, todoData, {
+                await axios.put(`api/tasks/${todo._id}`, todoData, {
                     headers: { Authorization: `${token}` },
                 });
             } else {
                 // Add new todo
                 toast({ description: "Creating To-Do... 🫸🏻" })
-                await axios.post(`${BASE_URL}/api/tasks`, todoData, {
+                await axios.post('/api/tasks', todoData, {
                     headers: { Authorization: `${token}` },
                 });
             }

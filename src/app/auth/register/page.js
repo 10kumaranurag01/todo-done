@@ -4,7 +4,6 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
 import { useRouter } from "next/navigation"
-import axios from "axios"
 import {
     Card,
     CardContent,
@@ -24,6 +23,7 @@ import {
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { useToast } from "@/hooks/use-toast"
+import { useAxios } from "@/lib/axiosInstance"
 
 const registerSchema = z.object({
     username: z.string().min(2, {
@@ -40,7 +40,7 @@ const registerSchema = z.object({
 export default function RegisterPage() {
     const router = useRouter()
     const { toast } = useToast()
-    const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
+    const axios = useAxios()
 
     const form = useForm({
         resolver: zodResolver(registerSchema),
@@ -54,7 +54,7 @@ export default function RegisterPage() {
     const onSubmit = async (data) => {
         try {
             toast({ description: "Signing Up... 🫸🏻" })
-            await axios.post(`${BASE_URL}/api/auth/register`, data)
+            await axios.post('/api/auth/register', data)
             toast({ description: "Log in with your credentials 😊" })
             router.push("/auth/login")
         } catch (error) {
