@@ -53,9 +53,9 @@ export default function RegisterPage() {
 
     const onSubmit = async (data) => {
         try {
-            toast({ description: "Signing Up... 🫸🏻" })
+            toast({ description: "Signing Up... 🫸🏻", style: {color: "white" } })
             await axios.post(`${BASE_URL}/api/auth/register`, data)
-            toast({ description: "Log in with your credentials 😊" })
+            toast({ description: "Log in with your credentials 😊", style: {color: "white"} })
             router.push("/auth/login")
         } catch (error) {
             console.error("Registration failed", error)
@@ -113,8 +113,9 @@ export default function RegisterPage() {
                                     </FormItem>
                                 )}
                             />
-
+                            <div className="flex justify-center">
                             <Button type="submit">Register</Button>
+                            </div>
                         </form>
                     </Form>
                 </CardContent>
