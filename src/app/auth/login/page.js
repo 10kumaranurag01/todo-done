@@ -27,6 +27,7 @@ import { Input } from "@/components/ui/input"
 import { useAppDispatch } from '@/lib/store/hooks'
 import { setAuth } from "@/lib/store/features/auth/authSlice"
 import { useTasks } from '../../../lib/context/TaskContext';
+import { useState } from "react"
 
 const loginSchema = z.object({
     username: z.string().min(2, {
@@ -43,6 +44,7 @@ export default function LoginPage() {
     const dispatch = useAppDispatch()
     const { fetchTasks } = useTasks();
     const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
+    const [loginstatus, Setloginstatus] = useState(false);
 
     const form = useForm({
         resolver: zodResolver(loginSchema),
@@ -54,7 +56,7 @@ export default function LoginPage() {
 
     const onSubmit = async (data) => {
         try {
-            toast({ description: "Logging In... 🫸🏻", style: {color: "white"} })
+            toast({ description: "Logging In... 🫸🏻"})
             const response = await axios.post(`${BASE_URL}/api/auth/login`, data)
             localStorage.setItem("token", response.data.token)
             toast({ description: "Log In Successfull ✅", variant: "default" })
@@ -63,6 +65,7 @@ export default function LoginPage() {
             router.push("/dashboard")
         } catch (error) {
             toast({ description: "Log In Failed ❌", variant: "destructive" })
+            Setloginstatus(true);
         }
     }
 
@@ -107,9 +110,11 @@ export default function LoginPage() {
                                     </FormItem>
                                 )}
                             />
-                            <div className="flex justify-between">
+                            <div className="flex flex-col space-y-3">
                             <Button type="submit">Login</Button>
+                            {loginstatus && (
                             <Button type="button" variant="secondary" onClick={handelRegister}>Register</Button>
+                            )}
                             </div>
                         </form>
                     </Form>

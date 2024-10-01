@@ -68,21 +68,14 @@ export default function Topbar() {
 
             {/* Mobile menu button */}
             <div className="block lg:hidden ml-auto">
-                <DropdownMenu>
-                    <DropdownMenuTrigger>☰</DropdownMenuTrigger>
-                    <DropdownMenuContent className="dark">
-                        <DropdownMenuLabel>My Account</DropdownMenuLabel>
-                        <DropdownMenuSeparator />
                         {isAuthenticated ? (
                             <>
-                                <DropdownMenuItem onClick={handleLogout}>Logout</DropdownMenuItem>
+                        <Button onClick={handleLogout} className="sm:text-sm sm:px-2 sm:py-1">Logout</Button>
                             </>
                         ) : (
                             <>
                             </>
                         )}
-                    </DropdownMenuContent>
-                </DropdownMenu>
             </div>
         </header>
     )
