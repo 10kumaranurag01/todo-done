@@ -62,12 +62,6 @@ export default function Topbar() {
                     </>
                 ) : (
                     <>
-                        <Link href="/auth/login">
-                            <Button variant="outline">Log In</Button>
-                        </Link>
-                        <Link href="/auth/register">
-                            <Button variant="secondary">Sign Up</Button>
-                        </Link>
                     </>
                 )}
             </div>
@@ -85,12 +79,6 @@ export default function Topbar() {
                             </>
                         ) : (
                             <>
-                                <DropdownMenuItem asChild>
-                                    <Link href="/auth/login">Log In</Link>
-                                </DropdownMenuItem>
-                                <DropdownMenuItem asChild>
-                                    <Link href="/auth/register">Sign Up</Link>
-                                </DropdownMenuItem>
                             </>
                         )}
                     </DropdownMenuContent>
