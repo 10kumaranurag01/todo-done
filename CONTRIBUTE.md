@@ -65,7 +65,7 @@ If you have an idea for a new feature:
 Please follow these guidelines to maintain code consistency:
 
 - Use **[Prettier](https://prettier.io/)** or a similar code formatter for consistent code formatting.
-- Follow the **[TypeScript](https://www.typescriptlang.org/docs/)** best practices (if the project uses TypeScript).
+- Follow the **[NextJS](https://nextjs.org/docs)** best practices.
 - Commit messages should be concise and descriptive, following the format:
   - `fix: issue with...`
   - `feat: added new feature...`
@@ -87,5 +87,3 @@ Please follow these guidelines to maintain code consistency:
 If you need help or have questions about contributing, feel free to open an issue or reach out via [project's communication channel (e.g., Slack, Discord)].
 
 ---
-
-Feel free to adjust it based on your project's needs!
