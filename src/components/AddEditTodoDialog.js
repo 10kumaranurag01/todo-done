@@ -50,8 +50,8 @@ const AddEditTodoDialog = ({ todo, btnText }) => {
         }
     }, [todo]);
 
-    const handleSubmit = async () => {
-
+    const handleSubmit = async (e) => {
+        e.preventDefault(); //handling re-rendering.
         if (title === "" || description === "" || status === "" || dueDate == null || priority === "") {
             toast({ description: "Try again, all fields are required 🙁" });
             return;
