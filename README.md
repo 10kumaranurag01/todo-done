@@ -14,7 +14,6 @@ A modern task management app that uses a Kanban-style board to help users organi
   - [Test User Credentials](#test-user-credentials)
   - [API Endpoints](#api-endpoints)
   - [Contributing](#contributing)
-  - [to contribute to this project.](#to-contribute-to-this-project)
   - [Contact](#contact)
   - [Backend Repository Link](#backend-repository-link)
 
@@ -113,8 +112,9 @@ password=123456
 
 ## Contributing
 
-Check  out the [CONTRIBUTING.md](CONTRIBUTING.md) file for guidelines on how
+Check  out the `CONTRIBUTE.md` file for guidelines on how
 to contribute to this project.
+
 ---
 
 ## Contact
