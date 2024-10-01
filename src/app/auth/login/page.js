@@ -54,16 +54,20 @@ export default function LoginPage() {
 
     const onSubmit = async (data) => {
         try {
-            toast({ description: "Logging In... 🫸🏻" })
+            toast({ description: "Logging In... 🫸🏻", style: {color: "white"} })
             const response = await axios.post(`${BASE_URL}/api/auth/login`, data)
             localStorage.setItem("token", response.data.token)
-            toast({ description: "Log In Successfull ✅" })
+            toast({ description: "Log In Successfull ✅", variant: "default" })
             dispatch(setAuth())
             fetchTasks()
             router.push("/dashboard")
         } catch (error) {
-            toast({ description: "Log In Failed ❌" })
+            toast({ description: "Log In Failed ❌", variant: "destructive" })
         }
+    }
+
+    const handelRegister = () => {
+        router.push("/auth/register")
     }
 
     return (
@@ -103,8 +107,10 @@ export default function LoginPage() {
                                     </FormItem>
                                 )}
                             />
-
-                            <Button type="submit" variant="secondary">Login</Button>
+                            <div className="flex justify-between">
+                            <Button type="submit">Login</Button>
+                            <Button type="button" variant="secondary" onClick={handelRegister}>Register</Button>
+                            </div>
                         </form>
                     </Form>
                 </CardContent>
