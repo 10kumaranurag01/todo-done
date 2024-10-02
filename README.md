@@ -1,4 +1,7 @@
 <a id="top"></a>
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-6-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 <h1 align="center">Todo Done</h1>
 <h3 align="center">    
  
@@ -13,17 +16,30 @@ A modern task management app that uses a Kanban-style board to help users organi
   <summary><h2>:pushpin:Table of Contents: </h2></summary>
 
   
-  - [Features](#features)
-  - [Tech Stack](#tech-stack)
-  - [Installation](#installation)
-  - [Usage](#usage)
-  - [Environment Variables](#environment-variables)
-  - [Test User Credentials](#test-user-credentials)
-  - [API Endpoints](#api-endpoints)
-  - [Backend](#Backend)
-  - [Contributing](#contributing)
-  - [Contact](#contact)
-  - [Backend Repository Link](#backend-repository-link)
+- [:zap: Features](#zap-features)
+- [Usage](#usage)
+- [Environment Variables](#environment-variables)
+- [Test User Credentials](#test-user-credentials)
+- [API Endpoints](#api-endpoints)
+- [Features](#features)
+- [Project Structure](#project-structure)
+- [Requirements](#requirements)
+- [Installation](#installation)
+- [API Endpoints](#api-endpoints-1)
+  - [Authentication Routes](#authentication-routes)
+  - [Task Management Routes](#task-management-routes)
+  - [Example API Responses](#example-api-responses)
+    - [Register a New User](#register-a-new-user)
+    - [Login a User](#login-a-user)
+    - [Get All Tasks](#get-all-tasks)
+- [Environment Variables](#environment-variables-1)
+- [Running the Project in Development](#running-the-project-in-development)
+- [Error Handling](#error-handling)
+- [Deployment](#deployment)
+- [Contributors ✨](#contributors-)
+- [✨Contributing](#contributing)
+- [Contact](#contact)
+- [Backend Repository Link](#backend-repository-link)
   
 </details>
 <hr>
@@ -343,6 +359,37 @@ To deploy the backend:
 </details>
 
 <hr>
+
+## Contributors ✨
+
+Thanks to these amazing contributors:
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tbody>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://devanshukoli.bio.link/"><img src="https://avatars.githubusercontent.com/u/99028806?v=4?s=100" width="100px;" alt="Devanshukoli"/><br /><sub><b>Devanshukoli</b></sub></a><br /><a href="https://github.com/10kumaranurag01/todo-done/commits?author=Devanshukoli" title="Documentation">📖</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://shivamnarkar47.netlify.app/"><img src="https://avatars.githubusercontent.com/u/67094628?v=4?s=100" width="100px;" alt="Shivam Narkar"/><br /><sub><b>Shivam Narkar</b></sub></a><br /><a href="https://github.com/10kumaranurag01/todo-done/issues?q=author%3Ashivamnarkar47" title="Bug reports">🐛</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/vverma022"><img src="https://avatars.githubusercontent.com/u/109036913?v=4?s=100" width="100px;" alt="Vasu Verma"/><br /><sub><b>Vasu Verma</b></sub></a><br /><a href="https://github.com/10kumaranurag01/todo-done/issues?q=author%3Avverma022" title="Bug reports">🐛</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/shubhagarwal1"><img src="https://avatars.githubusercontent.com/u/105449260?v=4?s=100" width="100px;" alt="Shubh Agarwal"/><br /><sub><b>Shubh Agarwal</b></sub></a><br /><a href="https://github.com/10kumaranurag01/todo-done/commits?author=shubhagarwal1" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/Aditijainnn"><img src="https://avatars.githubusercontent.com/u/144632601?v=4?s=100" width="100px;" alt="Aditi"/><br /><sub><b>Aditi</b></sub></a><br /><a href="https://github.com/10kumaranurag01/todo-done/commits?author=Aditijainnn" title="Documentation">📖</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://kalevin.dev/"><img src="https://avatars.githubusercontent.com/u/51754037?v=4?s=100" width="100px;" alt="Kevin Muñoz Rengifo"/><br /><sub><b>Kevin Muñoz Rengifo</b></sub></a><br /><a href="https://github.com/10kumaranurag01/todo-done/commits?author=Kalevins" title="Code">💻</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore -->
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [All Contributors](https://allcontributors.org/) specification. Contributions of any kind are welcome!
+
 
 ## ✨Contributing
 
