@@ -1,0 +1,70 @@
+{
+  "projectName": "todo-done",
+  "projectOwner": "10kumaranurag01",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": true,
+  "commitConvention": "eslint",
+  "contributors": [
+    {
+      "login": "Devanshukoli",
+      "name": "Devanshukoli",
+      "avatar_url": "https://avatars.githubusercontent.com/u/99028806?v=4",
+      "profile": "https://devanshukoli.bio.link/",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "shivamnarkar47",
+      "name": "Shivam Narkar",
+      "avatar_url": "https://avatars.githubusercontent.com/u/67094628?v=4",
+      "profile": "https://shivamnarkar47.netlify.app/",
+      "contributions": [
+        "bug"
+      ]
+    },
+    {
+      "login": "vverma022",
+      "name": "Vasu Verma",
+      "avatar_url": "https://avatars.githubusercontent.com/u/109036913?v=4",
+      "profile": "https://github.com/vverma022",
+      "contributions": [
+        "bug"
+      ]
+    },
+    {
+      "login": "shubhagarwal1",
+      "name": "Shubh Agarwal",
+      "avatar_url": "https://avatars.githubusercontent.com/u/105449260?v=4",
+      "profile": "https://github.com/shubhagarwal1",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "Aditijainnn",
+      "name": "Aditi",
+      "avatar_url": "https://avatars.githubusercontent.com/u/144632601?v=4",
+      "profile": "https://github.com/Aditijainnn",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "Kalevins",
+      "name": "Kevin Muñoz Rengifo",
+      "avatar_url": "https://avatars.githubusercontent.com/u/51754037?v=4",
+      "profile": "https://kalevin.dev/",
+      "contributions": [
+        "code"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "linkToUsage": false
+}

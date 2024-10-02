@@ -24,6 +24,7 @@ import {
 import { Input } from "@/components/ui/input"
 import { useToast } from "@/hooks/use-toast"
 import { useAxios } from "@/lib/axiosInstance"
+import Link from "next/link"
 
 const registerSchema = z.object({
     username: z.string().min(2, {
@@ -113,8 +114,9 @@ export default function RegisterPage() {
                                     </FormItem>
                                 )}
                             />
-                             <div className="flex justify-center">
-                            <Button type="submit" className="w-full">Register</Button>
+                            <div className="flex flex-col space-y-2">
+                                <Button type="submit" className="w-full">Register</Button>
+                                <p className="mt-4 text-xs text-gray-200 text-center text-balance">Already have an account? <Link href="/auth/login" className="underline">Log In</Link></p>
                             </div>
                         </form>
                     </Form>

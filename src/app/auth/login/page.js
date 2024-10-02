@@ -27,7 +27,7 @@ import { useAppDispatch } from '@/lib/store/hooks'
 import { setAuth } from "@/lib/store/features/auth/authSlice"
 import { useTasks } from '../../../lib/context/TaskContext';
 import { useAxios } from "@/lib/axiosInstance"
-import { useState } from "react"
+import Link from "next/link"
 
 const loginSchema = z.object({
     username: z.string().min(2, {
@@ -44,7 +44,6 @@ export default function LoginPage() {
     const dispatch = useAppDispatch()
     const { fetchTasks } = useTasks();
     const axios = useAxios()
-    const [loginFailed, setLoginFailed] = useState(false)
 
     const form = useForm({
         resolver: zodResolver(loginSchema),
@@ -65,7 +64,6 @@ export default function LoginPage() {
             router.push("/dashboard")
         } catch (error) {
             toast({ description: "Log In Failed ❌" })
-            setLoginFailed(true)
         }
     }
 
@@ -106,16 +104,10 @@ export default function LoginPage() {
                                     </FormItem>
                                 )}
                             />
-                             <div className="flex flex-col space-y-2">
-                             <Button type="submit" className="flex justify-center">Login</Button>
-                             {loginFailed && (
-                            <>
-                              <p className="mt-4 text-xs text-gray-500 text-balance">Don't have an account ? Register by clicking below</p>
-                             <Button className="flex justify-center" type="button" variant="secondary" onClick={() => router.push('/auth/register')}>Register</Button>
-                            </>
-                                )}
-                             </div>
-                            
+                            <div className="flex flex-col space-y-2">
+                                <Button type="submit" className="flex justify-center">Login</Button>
+                                <p className="mt-4 text-xs text-gray-200 text-center text-balance">Don&apos;t have an account? <Link href="/auth/register" className="underline">Sign Up</Link></p>
+                            </div>
                         </form>
                     </Form>
                 </CardContent>
