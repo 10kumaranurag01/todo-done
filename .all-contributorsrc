@@ -54,6 +54,15 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "Kalevins",
+      "name": "Kevin Muñoz Rengifo",
+      "avatar_url": "https://avatars.githubusercontent.com/u/51754037?v=4",
+      "profile": "https://kalevin.dev/",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
