@@ -20,7 +20,7 @@ const DatePicker = ({ setDueDate, dueDate }) => {
                 <Button
                     variant={"outline"}
                     className={cn(
-                        "w-[190px] justify-start text-left font-normal dark",
+                        "w-[190px] justify-start text-left font-normal",
                         !dueDate && "text-muted-foreground"
                     )}
                 >
@@ -28,13 +28,12 @@ const DatePicker = ({ setDueDate, dueDate }) => {
                     {dueDate ? format(dueDate, "PPP") : <span>Pick a due date</span>}
                 </Button>
             </PopoverTrigger>
-            <PopoverContent className="w-auto p-0 dark">
+            <PopoverContent className="w-auto p-0">
                 <Calendar
                     mode="single"
                     selected={dueDate}
                     onSelect={setDueDate}
                     initialFocus
-                    className="dark"
                 />
             </PopoverContent>
         </Popover>
