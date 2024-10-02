@@ -37,7 +37,7 @@ const registerSchema = z.object({
     }),
 })
 
-export default function RegisterPage() {
+export default function FotgotPasswordPage() {
     const router = useRouter()
     const { toast } = useToast()
     const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
@@ -58,7 +58,7 @@ export default function RegisterPage() {
             toast({ description: "Log in with your credentials 😊" })
             router.push("/auth/login")
         } catch (error) {
-            console.error("Registration failed", error)
+            console.error("Password reset failed", error)
         }
     }
 
