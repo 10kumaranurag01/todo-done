@@ -1,4 +1,7 @@
 <a id="top"></a>
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 <h1 align="center">Todo Done</h1>
 <h3 align="center">    
  
@@ -13,17 +16,30 @@ A modern task management app that uses a Kanban-style board to help users organi
   <summary><h2>:pushpin:Table of Contents: </h2></summary>
 
   
-  - [Features](#features)
-  - [Tech Stack](#tech-stack)
-  - [Installation](#installation)
-  - [Usage](#usage)
-  - [Environment Variables](#environment-variables)
-  - [Test User Credentials](#test-user-credentials)
-  - [API Endpoints](#api-endpoints)
-  - [Backend](#Backend)
-  - [Contributing](#contributing)
-  - [Contact](#contact)
-  - [Backend Repository Link](#backend-repository-link)
+- [:zap: Features](#zap-features)
+- [Usage](#usage)
+- [Environment Variables](#environment-variables)
+- [Test User Credentials](#test-user-credentials)
+- [API Endpoints](#api-endpoints)
+- [Features](#features)
+- [Project Structure](#project-structure)
+- [Requirements](#requirements)
+- [Installation](#installation)
+- [API Endpoints](#api-endpoints-1)
+  - [Authentication Routes](#authentication-routes)
+  - [Task Management Routes](#task-management-routes)
+  - [Example API Responses](#example-api-responses)
+    - [Register a New User](#register-a-new-user)
+    - [Login a User](#login-a-user)
+    - [Get All Tasks](#get-all-tasks)
+- [Environment Variables](#environment-variables-1)
+- [Running the Project in Development](#running-the-project-in-development)
+- [Error Handling](#error-handling)
+- [Deployment](#deployment)
+- [Contributors ✨](#contributors-)
+- [✨Contributing](#contributing)
+- [Contact](#contact)
+- [Backend Repository Link](#backend-repository-link)
   
 </details>
 <hr>
@@ -343,6 +359,36 @@ To deploy the backend:
 </details>
 
 <hr>
+
+## Contributors ✨
+
+Thanks to these amazing contributors:
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tbody>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://devanshukoli.bio.link/"><img src="https://avatars.githubusercontent.com/u/99028806?v=4?s=100" width="100px;" alt="Devanshukoli"/><br /><sub><b>Devanshukoli</b></sub></a><br /><a href="https://github.com/10kumaranurag01/todo-done/commits?author=Devanshukoli" title="Documentation">📖</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-0-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore -->
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [All Contributors](https://allcontributors.org/) specification. Contributions of any kind are welcome!
+
 
 ## ✨Contributing
 

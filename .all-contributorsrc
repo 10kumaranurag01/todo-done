@@ -1,0 +1,25 @@
+{
+  "projectName": "todo-done",
+  "projectOwner": "10kumaranurag01",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": true,
+  "commitConvention": "eslint",
+  "contributors": [
+    {
+      "login": "Devanshukoli",
+      "name": "Devanshukoli",
+      "avatar_url": "https://avatars.githubusercontent.com/u/99028806?v=4",
+      "profile": "https://devanshukoli.bio.link/",
+      "contributions": [
+        "doc"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "linkToUsage": false
+}
