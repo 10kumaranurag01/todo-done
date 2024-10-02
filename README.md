@@ -1,6 +1,6 @@
 <a id="top"></a>
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-6-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-7-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 <h1 align="center">Todo Done</h1>
 <h3 align="center">    
@@ -375,6 +375,7 @@ Thanks to these amazing contributors:
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/shubhagarwal1"><img src="https://avatars.githubusercontent.com/u/105449260?v=4?s=100" width="100px;" alt="Shubh Agarwal"/><br /><sub><b>Shubh Agarwal</b></sub></a><br /><a href="https://github.com/10kumaranurag01/todo-done/commits?author=shubhagarwal1" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/Aditijainnn"><img src="https://avatars.githubusercontent.com/u/144632601?v=4?s=100" width="100px;" alt="Aditi"/><br /><sub><b>Aditi</b></sub></a><br /><a href="https://github.com/10kumaranurag01/todo-done/commits?author=Aditijainnn" title="Documentation">📖</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://kalevin.dev/"><img src="https://avatars.githubusercontent.com/u/51754037?v=4?s=100" width="100px;" alt="Kevin Muñoz Rengifo"/><br /><sub><b>Kevin Muñoz Rengifo</b></sub></a><br /><a href="https://github.com/10kumaranurag01/todo-done/commits?author=Kalevins" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/Abhiraj-Sardar"><img src="https://avatars.githubusercontent.com/u/122967579?v=4?s=100" width="100px;" alt="ABHIRAJ SARDAR"/><br /><sub><b>ABHIRAJ SARDAR</b></sub></a><br /><a href="https://github.com/10kumaranurag01/todo-done/issues?q=author%3AAbhiraj-Sardar" title="Bug reports">🐛</a></td>
     </tr>
   </tbody>
 </table>
