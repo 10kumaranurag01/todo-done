@@ -110,8 +110,8 @@ export default function LoginPage() {
                              <Button type="submit" className="flex justify-center">Login</Button>
                              {loginFailed && (
                             <>
-                              <p className="mt-4 text-xs text-gray-500 text-balance">Don't have an account ? Register by clicking below</p>
-                             <Button className="flex justify-center" type="button" variant="secondary" onClick={() => router.push('/auth/register')}>Register</Button>
+                              <p className="mt-4 text-xs text-gray-500 text-center text-balance">Don&apos;t have an account? Register by clicking below</p>
+                              <Button className="flex justify-center" type="button" variant="secondary" onClick={() => router.push('/auth/register')}>Register</Button>
                             </>
                                 )}
                              </div>
