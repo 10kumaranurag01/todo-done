@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 
 const MobileNav = ({ selectedPage, setSelectedPage, isMobileMenuOpen, setMobileMenuOpen }) => {
     return (
-        <header className="flex h-14 items-center gap-4 h-50 px-4 lg:h-[60px] lg:px-6 mt-16 bg-[#0a0a0a] ">
+        <header className="flex h-14 items-center gap-4 h-50 px-4 lg:h-[60px] lg:px-6 mt-16">
             <Sheet>
                 <SheetTrigger asChild>
                     <Button variant="outline" size="icon" className="shrink-0 lg:hidden">
@@ -12,7 +12,7 @@ const MobileNav = ({ selectedPage, setSelectedPage, isMobileMenuOpen, setMobileM
                         <span className="sr-only">Toggle navigation menu</span>
                     </Button>
                 </SheetTrigger>
-                <SheetContent side="left" className="flex flex-col bg-[#0a0a0a] border-gray-600">
+                <SheetContent side="left" className="flex flex-col border-gray-600">
                     <nav className="grid gap-2 text-lg font-medium mt-14">
                         <Button
                             className={`w-full text-left py-2 px-4 `}

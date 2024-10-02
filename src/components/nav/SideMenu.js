@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 
 const SideMenu = ({ selectedPage, setSelectedPage, isMobileMenuOpen, setMobileMenuOpen }) => {
     return (
-        <div className="hidden border-r lg:block mt-16 bg-[#0a0a0a] border-gray-600">
+        <div className="hidden border-r lg:block mt-16 border-gray-600">
             <div className="flex h-full max-h-screen flex-col gap-2">
                 <nav className="grid items-start px-1 text-sm font-medium lg:px-4 mt-4 ">
                     <Button

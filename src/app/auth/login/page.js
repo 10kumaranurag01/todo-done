@@ -27,6 +27,7 @@ import { useAppDispatch } from '@/lib/store/hooks'
 import { setAuth } from "@/lib/store/features/auth/authSlice"
 import { useTasks } from '../../../lib/context/TaskContext';
 import { useAxios } from "@/lib/axiosInstance"
+import Link from "next/link"
 
 const loginSchema = z.object({
     username: z.string().min(2, {
@@ -103,8 +104,10 @@ export default function LoginPage() {
                                     </FormItem>
                                 )}
                             />
-
-                            <Button type="submit" variant="secondary">Login</Button>
+                            <div className="flex flex-col space-y-2">
+                                <Button type="submit" className="flex justify-center">Login</Button>
+                                <p className="mt-4 text-xs text-center text-balance">Don&apos;t have an account? <Link href="/auth/register" className="underline">Sign Up</Link></p>
+                            </div>
                         </form>
                     </Form>
                 </CardContent>

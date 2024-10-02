@@ -55,7 +55,6 @@ export default function Topbar() {
       <Link href="/" className="text-xl font-bold">
         To-Do Done 📝
       </Link>
-
       <div className="hidden lg:flex items-center space-x-4">
         <ModeToggle />
         {isAuthenticated ? (
@@ -63,43 +62,21 @@ export default function Topbar() {
             <Button onClick={handleLogout}>Logout</Button>
           </>
         ) : (
-          <>
-            <Link href="/auth/login">
-              <Button variant="outline">Log In</Button>
-            </Link>
-            <Link href="/auth/register">
-              <Button variant="secondary">Sign Up</Button>
-            </Link>
-          </>
+          <></>
         )}
       </div>
 
       {/* Mobile menu button */}
       <div className="block lg:hidden ml-auto">
-        <DropdownMenu>
-          <DropdownMenuTrigger>☰</DropdownMenuTrigger>
-          <DropdownMenuContent>
-            <DropdownMenuLabel>My Account</DropdownMenuLabel>
-            <DropdownMenuSeparator />
-            <ModeToggle />
-            {isAuthenticated ? (
-              <>
-                <DropdownMenuItem onClick={handleLogout}>
-                  Logout
-                </DropdownMenuItem>
-              </>
-            ) : (
-              <>
-                <DropdownMenuItem asChild>
-                  <Link href="/auth/login">Log In</Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem asChild>
-                  <Link href="/auth/register">Sign Up</Link>
-                </DropdownMenuItem>
-              </>
-            )}
-          </DropdownMenuContent>
-        </DropdownMenu>
+        {isAuthenticated ? (
+          <>
+            <Button onClick={handleLogout} className="text-xs">
+              Logout
+            </Button>
+          </>
+        ) : (
+          <></>
+        )}
       </div>
     </header>
   );
