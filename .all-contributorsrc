@@ -36,6 +36,15 @@
       "contributions": [
         "bug"
       ]
+    },
+    {
+      "login": "shubhagarwal1",
+      "name": "Shubh Agarwal",
+      "avatar_url": "https://avatars.githubusercontent.com/u/105449260?v=4",
+      "profile": "https://github.com/shubhagarwal1",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
