@@ -39,7 +39,7 @@ const TodoCard = ({ todo }) => {
     };
 
     return (
-        <Card key={todo._id} className="dark relative ">
+        <Card key={todo._id} className="relative ">
             <div className="absolute top-2 right-2">
                 <AddEditTodoDialog btnText={"Edit Todo"} todo={todo} />
                 <DeleteTodo handleDelete={handleDelete} />

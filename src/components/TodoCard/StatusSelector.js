@@ -13,7 +13,7 @@ const StatusSelector = ({ status, setStatus }) => {
             <SelectTrigger className="w-[170px]">
                 <SelectValue placeholder="Select status" />
             </SelectTrigger>
-            <SelectContent className="dark">
+            <SelectContent>
                 <SelectItem value="To Do">📋 To Do</SelectItem>
                 <SelectItem value="In Progress">🕓 In Progress</SelectItem>
                 <SelectItem value="Completed">✅ Completed</SelectItem>

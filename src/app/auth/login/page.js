@@ -68,7 +68,7 @@ export default function LoginPage() {
     }
 
     return (
-        <div className="flex justify-center items-center h-[95vh] dark">
+        <div className="flex justify-center items-center h-[95vh]">
             <Card className="w-[350px]">
                 <CardHeader>
                     <CardTitle>Log In</CardTitle>
@@ -106,7 +106,7 @@ export default function LoginPage() {
                             />
                             <div className="flex flex-col space-y-2">
                                 <Button type="submit" className="flex justify-center">Login</Button>
-                                <p className="mt-4 text-xs text-gray-200 text-center text-balance">Don&apos;t have an account? <Link href="/auth/register" className="underline">Sign Up</Link></p>
+                                <p className="mt-4 text-xs text-center text-balance">Don&apos;t have an account? <Link href="/auth/register" className="underline">Sign Up</Link></p>
                             </div>
                         </form>
                     </Form>

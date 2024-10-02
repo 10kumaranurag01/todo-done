@@ -64,7 +64,7 @@ export default function RegisterPage() {
     }
 
     return (
-        <div className="flex justify-center items-center h-[95vh] dark">
+        <div className="flex justify-center items-center h-[95vh]">
             <Card className="w-[350px]">
                 <CardHeader>
                     <CardTitle>Register</CardTitle>
@@ -116,7 +116,7 @@ export default function RegisterPage() {
                             />
                             <div className="flex flex-col space-y-2">
                                 <Button type="submit" className="w-full">Register</Button>
-                                <p className="mt-4 text-xs text-gray-200 text-center text-balance">Already have an account? <Link href="/auth/login" className="underline">Log In</Link></p>
+                                <p className="mt-4 text-xs text-center text-balance">Already have an account? <Link href="/auth/login" className="underline">Log In</Link></p>
                             </div>
                         </form>
                     </Form>

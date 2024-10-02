@@ -43,7 +43,7 @@ const KanbanCard = ({ task }) => {
             ref={setNodeRef} // Attach ref for drag-and-drop
             {...listeners} // Attach listeners for drag interaction
             {...attributes} // Attach attributes for accessibility
-            className={`dark relative mb-4 p-4 shadow-lg rounded-lg transition-all duration-300 
+            className={`relative mb-4 p-4 shadow-lg rounded-lg transition-all duration-300 
             ${isDragging ? 'opacity-50 scale-105' : ''} 
             sm:p-3 sm:mb-3 md:p-4 md:mb-4 lg:p-5 lg:mb-5 touch-manipulation`} // Use touch-manipulation class
             style={style}

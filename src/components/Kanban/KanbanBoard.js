@@ -100,12 +100,12 @@ const KanbanBoard = () => {
         <div>
             <div className="flex items-center">
                 <h1 className="text-3xl mb-4 w-60 font-semibold"># Kanban Board</h1>
-                <div className='mb-4 border rounded-3xl p-1'>
+                <div className='mb-4 border rounded-3xl p-1 bg-black cursor-pointer'>
                     <PopOverTooltip />
                 </div>
             </div>
             <DndContext onDragEnd={handleDragEnd}>
-                <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+                <div className="grid grid-cols-1 gap-4 md:grid-cols-3 text-white">
                     <KanbanColumn status="To Do" tasks={sortedTasks.todo} />
                     <KanbanColumn status="In Progress" tasks={sortedTasks.inProgress} />
                     <KanbanColumn status="Completed" tasks={sortedTasks.completed} />
