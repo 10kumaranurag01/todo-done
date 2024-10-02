@@ -4,7 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
 import { useRouter } from "next/navigation"
-import axios from "axios"
+import { useAxios } from "@/lib/axiosInstance"
 import {
     Card,
     CardContent,
@@ -41,6 +41,7 @@ export default function FotgotPasswordPage() {
     const router = useRouter()
     const { toast } = useToast()
     const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
+    const axios = useAxios()
 
     const form = useForm({
         resolver: zodResolver(registerSchema),
