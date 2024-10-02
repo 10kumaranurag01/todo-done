@@ -1,6 +1,6 @@
 <a id="top"></a>
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-5-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 <h1 align="center">Todo Done</h1>
 <h3 align="center">    
@@ -373,6 +373,7 @@ Thanks to these amazing contributors:
       <td align="center" valign="top" width="14.28%"><a href="https://shivamnarkar47.netlify.app/"><img src="https://avatars.githubusercontent.com/u/67094628?v=4?s=100" width="100px;" alt="Shivam Narkar"/><br /><sub><b>Shivam Narkar</b></sub></a><br /><a href="https://github.com/10kumaranurag01/todo-done/issues?q=author%3Ashivamnarkar47" title="Bug reports">🐛</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/vverma022"><img src="https://avatars.githubusercontent.com/u/109036913?v=4?s=100" width="100px;" alt="Vasu Verma"/><br /><sub><b>Vasu Verma</b></sub></a><br /><a href="https://github.com/10kumaranurag01/todo-done/issues?q=author%3Avverma022" title="Bug reports">🐛</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/shubhagarwal1"><img src="https://avatars.githubusercontent.com/u/105449260?v=4?s=100" width="100px;" alt="Shubh Agarwal"/><br /><sub><b>Shubh Agarwal</b></sub></a><br /><a href="https://github.com/10kumaranurag01/todo-done/commits?author=shubhagarwal1" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/Aditijainnn"><img src="https://avatars.githubusercontent.com/u/144632601?v=4?s=100" width="100px;" alt="Aditi"/><br /><sub><b>Aditi</b></sub></a><br /><a href="https://github.com/10kumaranurag01/todo-done/commits?author=Aditijainnn" title="Documentation">📖</a></td>
     </tr>
   </tbody>
 </table>
