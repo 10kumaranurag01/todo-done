@@ -207,8 +207,8 @@ Before starting, ensure you have:
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/your-username/task-manager-backend.git
-   cd task-manager-backend
+   git clone https://github.com/10kumaranurag01/todo-done-express.git
+   cd todo-done-express
    ```
 
 2. **Install dependencies:**
