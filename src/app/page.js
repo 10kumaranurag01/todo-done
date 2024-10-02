@@ -32,7 +32,7 @@ export default function Home() {
           className="text-center mb-12"
         >
           <h1 className="text-5xl font-bold mb-4">Simplify Your Day</h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-400 max-w-2xl mx-auto">
             Organize, prioritize, and accomplish your tasks with ease using To-Do Done.
           </p>
         </motion.div>
@@ -51,7 +51,7 @@ export default function Home() {
           ].map((feature, index) => (
             <div key={index} className="bg-gray-100 p-6 rounded-lg text-center">
               <feature.icon className="w-12 h-12 mx-auto mb-4 text-gray-800" />
-              <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
+              <h3 className="text-xl font-semibold mb-2 text-gray-600">{feature.title}</h3>
               <p className="text-gray-600">{feature.description}</p>
             </div>
           ))}

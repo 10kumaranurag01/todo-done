@@ -67,7 +67,8 @@ export default function Topbar() {
       </div>
 
       {/* Mobile menu button */}
-      <div className="block lg:hidden ml-auto">
+      <div className="lg:hidden ml-auto flex space-x-4">
+      <ModeToggle />
         {isAuthenticated ? (
           <>
             <Button onClick={handleLogout} className="text-xs">

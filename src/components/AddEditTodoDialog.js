@@ -21,6 +21,7 @@ import editIcon from "../assets/icons8-edit.svg";
 import { useToast } from "@/hooks/use-toast"
 import { useTasks } from '../lib/context/TaskContext';
 import { useAxios } from "@/lib/axiosInstance";
+import { EditIcon } from "lucide-react";
 
 const AddEditTodoDialog = ({ todo, btnText }) => {
     const [initialTodo, setInitialTodo] = useState({
@@ -98,7 +99,7 @@ const AddEditTodoDialog = ({ todo, btnText }) => {
                 <Button
                     variant={btnText === "Add Todo" ? "secondary" : "ghost"}
                 >
-                    {btnText === "Add Todo" ? "Add To Do" : (<Image src={editIcon} alt="Edit" width={16} height={16} className="bg-black" />)}
+                    {btnText === "Add Todo" ? "Add To Do" : (<EditIcon height={16} width={16} />)}
                 </Button>
             </DialogTrigger>
             <DialogContent className="w-11/12 max-w-11/12 sm:max-w-[425px] border-gray-500">
