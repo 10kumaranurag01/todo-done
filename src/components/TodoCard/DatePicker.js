@@ -12,29 +12,36 @@ import {
     PopoverContent,
     PopoverTrigger,
 } from "@/components/ui/popover"
+import { useState } from "react"
+
 
 const DatePicker = ({ setDueDate, dueDate }) => {
+    const [openDialog, setOpenDialog] = useState(false)    
+    const handleOnSelect = (dateSelected) => {
+        setDueDate(dateSelected)
+        setOpenDialog(false)
+    }
     return (
-        <Popover>
+        <Popover open={openDialog} setOpenDialog={setOpenDialog}>
             <PopoverTrigger asChild>
                 <Button
                     variant={"outline"}
                     className={cn(
-                        "w-[190px] justify-start text-left font-normal dark",
+                        "w-[190px] justify-start text-left font-normal",
                         !dueDate && "text-muted-foreground"
                     )}
+                    onClick={() => setOpenDialog(true)}
                 >
                     <CalendarIcon className="mr-2 h-4 w-4" />
                     {dueDate ? format(dueDate, "PPP") : <span>Pick a due date</span>}
                 </Button>
             </PopoverTrigger>
-            <PopoverContent className="w-auto p-0 dark">
+            <PopoverContent className="w-auto p-0">
                 <Calendar
                     mode="single"
                     selected={dueDate}
-                    onSelect={setDueDate}
+                    onSelect={handleOnSelect}
                     initialFocus
-                    className="dark"
                 />
             </PopoverContent>
         </Popover>

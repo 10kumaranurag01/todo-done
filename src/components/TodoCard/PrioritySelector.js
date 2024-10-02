@@ -13,7 +13,7 @@ const PrioritySelector = ({ priority, setPriority }) => {
             <SelectTrigger className="w-[170px]">
                 <SelectValue placeholder="Select your priority" />
             </SelectTrigger>
-            <SelectContent className="dark">
+            <SelectContent>
                 <SelectItem value="Low">📗 Low</SelectItem>
                 <SelectItem value="Medium">📙 Medium</SelectItem>
                 <SelectItem value="High">📕 High</SelectItem>

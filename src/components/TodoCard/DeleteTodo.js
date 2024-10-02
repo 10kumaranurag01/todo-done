@@ -19,7 +19,7 @@ const DeleteTodo = ({ handleDelete }) => {
             <AlertDialogTrigger asChild>
                 <Button variant="ghost"><Image src={deleteIcon} alt="delete" height={16} width={16} /></Button>
             </AlertDialogTrigger>
-            <AlertDialogContent className="border-gray-600 bg-[#0a0a0a] w-11/12 max-w-11/12 sm:max-w-[425px]">
+            <AlertDialogContent className="border-gray-600 w-11/12 max-w-11/12 sm:max-w-[425px]">
                 <AlertDialogHeader>
                     <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
                     <AlertDialogDescription>

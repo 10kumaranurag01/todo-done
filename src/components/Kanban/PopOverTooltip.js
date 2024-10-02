@@ -12,7 +12,7 @@ const PopOverTooltip = () => {
             <PopoverTrigger asChild >
                 <Image src={questionIcon} alt="question-mark" height={12} width={12} />
             </PopoverTrigger>
-            <PopoverContent className="dark">Drag tasks between sections to change their status.</PopoverContent>
+            <PopoverContent>Drag tasks between sections to change their status.</PopoverContent>
         </Popover>
 
     )

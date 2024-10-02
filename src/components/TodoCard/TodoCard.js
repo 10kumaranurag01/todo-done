@@ -39,14 +39,14 @@ const TodoCard = ({ todo }) => {
     };
 
     return (
-        <Card key={todo._id} className="dark relative ">
+        <Card key={todo._id} className="relative ">
             <div className="absolute top-2 right-2">
                 <AddEditTodoDialog btnText={"Edit Todo"} todo={todo} />
                 <DeleteTodo handleDelete={handleDelete} />
             </div>
             <CardHeader>
                 <CardTitle>{todo.title}</CardTitle>
-                <CardDescription>{todo.description}</CardDescription>
+                <CardDescription className="break-words">{todo.description}</CardDescription>
             </CardHeader>
             <CardContent className="p-0 pl-6 pt-0">
                 <p className="font-semibold text-sm">📅 {formattedDate}</p>
