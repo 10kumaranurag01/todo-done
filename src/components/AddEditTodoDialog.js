@@ -34,6 +34,7 @@ const AddEditTodoDialog = ({ todo, btnText }) => {
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
     const [status, setStatus] = useState("");
+    const [openDialog, setOpenDialog] = useState(false);
     const [dueDate, setDueDate] = useState(null);
     const [priority, setPriority] = useState("");
     const { toast } = useToast()
@@ -80,6 +81,10 @@ const AddEditTodoDialog = ({ todo, btnText }) => {
             toast({ description: "Oops ! Something went wrong 🙁" })
         } finally {
             fetchTasks();
+            setOpenDialog(false);
+            if(btnText === "Add Todo") {
+                handleDialogClose();
+            }
             toast({ description: "Done 😊" })
         }
     };
@@ -94,9 +99,9 @@ const AddEditTodoDialog = ({ todo, btnText }) => {
     };
 
     return (
-        <Dialog onOpenChange={(isOpen) => !isOpen && handleDialogClose()}>
+        <Dialog open={openDialog} onOpenChange={setOpenDialog}>
             <DialogTrigger asChild>
-                <Button
+                <Button onClick={() => setOpenDialog(true)}
                     variant={btnText === "Add Todo" ? "secondary" : "ghost"}
                 >
                     {btnText === "Add Todo" ? "Add To Do" : (<EditIcon height={16} width={16} />)}

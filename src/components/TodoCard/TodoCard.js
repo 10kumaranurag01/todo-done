@@ -46,7 +46,7 @@ const TodoCard = ({ todo }) => {
             </div>
             <CardHeader>
                 <CardTitle>{todo.title}</CardTitle>
-                <CardDescription>{todo.description}</CardDescription>
+                <CardDescription className="break-words">{todo.description}</CardDescription>
             </CardHeader>
             <CardContent className="p-0 pl-6 pt-0">
                 <p className="font-semibold text-sm">📅 {formattedDate}</p>
