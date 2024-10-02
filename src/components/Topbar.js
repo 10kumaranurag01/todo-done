@@ -62,39 +62,21 @@ export default function Topbar() {
                     </>
                 ) : (
                     <>
-                        <Link href="/auth/login">
-                            <Button variant="outline">Log In</Button>
-                        </Link>
-                        <Link href="/auth/register">
-                            <Button variant="secondary">Sign Up</Button>
-                        </Link>
                     </>
                 )}
             </div>
 
             {/* Mobile menu button */}
             <div className="block lg:hidden ml-auto">
-                <DropdownMenu>
-                    <DropdownMenuTrigger>☰</DropdownMenuTrigger>
-                    <DropdownMenuContent className="dark">
-                        <DropdownMenuLabel>My Account</DropdownMenuLabel>
-                        <DropdownMenuSeparator />
                         {isAuthenticated ? (
                             <>
-                                <DropdownMenuItem onClick={handleLogout}>Logout</DropdownMenuItem>
+                                <Button onClick={handleLogout} className="text-xs">Logout</Button>
                             </>
                         ) : (
                             <>
-                                <DropdownMenuItem asChild>
-                                    <Link href="/auth/login">Log In</Link>
-                                </DropdownMenuItem>
-                                <DropdownMenuItem asChild>
-                                    <Link href="/auth/register">Sign Up</Link>
-                                </DropdownMenuItem>
+                            
                             </>
                         )}
-                    </DropdownMenuContent>
-                </DropdownMenu>
             </div>
         </header>
     )

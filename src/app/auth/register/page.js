@@ -113,8 +113,9 @@ export default function RegisterPage() {
                                     </FormItem>
                                 )}
                             />
-
-                            <Button type="submit">Register</Button>
+                             <div className="flex justify-center">
+                            <Button type="submit" className="w-full">Register</Button>
+                            </div>
                         </form>
                     </Form>
                 </CardContent>
