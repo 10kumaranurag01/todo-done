@@ -1,7 +1,7 @@
 "use client"
 
 import { createContext, useContext, useState, useEffect } from 'react';
-import axios from 'axios';
+import { useAxios } from '../axiosInstance';
 
 // Create TaskContext
 const TaskContext = createContext();
@@ -9,13 +9,13 @@ const TaskContext = createContext();
 // TaskProvider component to wrap your application
 export const TaskProvider = ({ children }) => {
     const [tasks, setTasks] = useState([]);
-    const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
+    const axios = useAxios()
 
     // Fetch tasks from the API
     const fetchTasks = async () => {
         try {
             const token = localStorage.getItem('token');
-            const response = await axios.get(`${BASE_URL}/api/tasks`, {
+            const response = await axios.get('/api/tasks', {
                 headers: { Authorization: `${token}` },
             });
             setTasks(response.data);

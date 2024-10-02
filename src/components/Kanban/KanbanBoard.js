@@ -4,10 +4,9 @@ import { useState, useEffect } from 'react';
 import { DndContext, useDraggable, useDroppable, DragEndEvent } from '@dnd-kit/core';
 import KanbanColumn from './KanbanColumn';
 import { useTasks } from '../../lib/context/TaskContext';
-import axios from 'axios';
 import PopOverTooltip from './PopOverTooltip';
 import { useToast } from "@/hooks/use-toast"
-
+import { useAxios } from '@/lib/axiosInstance';
 
 const KanbanBoard = () => {
     const [sortedTasks, setSortedTasks] = useState({
@@ -17,7 +16,7 @@ const KanbanBoard = () => {
     });
     const { tasks, fetchTasks } = useTasks();
     const { toast } = useToast()
-    const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
+    const axios = useAxios()
 
     useEffect(() => {
         const filterTasks = async () => {
@@ -86,7 +85,7 @@ const KanbanBoard = () => {
             dueDate: movedTask.dueDate
         }
         try {
-            await axios.put(`${BASE_URL}/api/tasks/${movedTask._id}`, payload, {
+            await axios.put(`/api/tasks/${movedTask._id}`, payload, {
                 headers: { Authorization: `${token}` },
             });
         } catch (error) {

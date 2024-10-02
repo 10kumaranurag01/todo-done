@@ -4,7 +4,6 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
 import { useRouter } from "next/navigation"
-import axios from "axios"
 import { useToast } from "@/hooks/use-toast"
 import {
     Card,
@@ -27,6 +26,7 @@ import { Input } from "@/components/ui/input"
 import { useAppDispatch } from '@/lib/store/hooks'
 import { setAuth } from "@/lib/store/features/auth/authSlice"
 import { useTasks } from '../../../lib/context/TaskContext';
+import { useAxios } from "@/lib/axiosInstance"
 
 const loginSchema = z.object({
     username: z.string().min(2, {
@@ -42,7 +42,7 @@ export default function LoginPage() {
     const { toast } = useToast()
     const dispatch = useAppDispatch()
     const { fetchTasks } = useTasks();
-    const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
+    const axios = useAxios()
 
     const form = useForm({
         resolver: zodResolver(loginSchema),
@@ -55,7 +55,7 @@ export default function LoginPage() {
     const onSubmit = async (data) => {
         try {
             toast({ description: "Logging In... 🫸🏻" })
-            const response = await axios.post(`${BASE_URL}/api/auth/login`, data)
+            const response = await axios.post('/api/auth/login', data)
             localStorage.setItem("token", response.data.token)
             toast({ description: "Log In Successfull ✅" })
             dispatch(setAuth())

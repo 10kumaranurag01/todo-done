@@ -54,6 +54,22 @@ module.exports = {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
 				sm: 'calc(var(--radius) - 4px)'
+			},
+			animation: {
+				waterfall_025: '1.5s waterfall 0.25s infinite',
+				waterfall_05: '1.5s waterfall 0.5s infinite',
+				waterfall_075: '1.5s waterfall 0.75s infinite',
+				waterfall_1: '1.5s waterfall 1s infinite',
+				waterfall_125: '1.5s waterfall 1.25s infinite',
+				waterfall_15: '1.5s waterfall 1.5s infinite',
+			},
+			keyframes: {
+				waterfall: {
+					'0%': { opacity: 0, transform: 'translateY(-250%)' },
+					'40%': { opacity: 1, transform: 'translateY(0)' },
+					'60%': { opacity: 1, transform: 'translateY(0)' },
+					'100%': { opacity: 0, transform: 'translateY(250%)' }
+				}
 			}
 		}
 	},
