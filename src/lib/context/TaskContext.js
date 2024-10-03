@@ -30,7 +30,6 @@ export const TaskProvider = ({ children }) => {
   }, []);
 
   const emptyTasks = () => {
-    console.log("EMPTYYYY");
     setTasks([]);
   };
 
