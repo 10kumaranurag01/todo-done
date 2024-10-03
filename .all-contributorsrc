@@ -16,13 +16,6 @@
       "contributions": ["doc"]
     },
     {
-      "login": "shivamnarkar47",
-      "name": "Shivam Narkar",
-      "avatar_url": "https://avatars.githubusercontent.com/u/67094628?v=4",
-      "profile": "https://shivamnarkar47.netlify.app/",
-      "contributions": ["bug"]
-    },
-    {
       "login": "vverma022",
       "name": "Vasu Verma",
       "avatar_url": "https://avatars.githubusercontent.com/u/109036913?v=4",
@@ -89,4 +82,3 @@
   "contributorsPerLine": 7,
   "linkToUsage": false
 }
-
