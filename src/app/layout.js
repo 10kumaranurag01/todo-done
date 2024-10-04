@@ -7,6 +7,7 @@ import StoreProvider from "./StoreProvider";
 import { TaskProvider } from "@/lib/context/TaskContext";
 import { LoadingProvider } from "@/lib/context/LoadingContext";
 import { ThemeProvider } from "@/components/Providers/ThemeProvider";
+import { AuthProvider } from "@/lib/context/Auth.context";
 
 const geistSans = localFont({
   src: "../fonts/GeistVF.woff",
@@ -38,16 +39,18 @@ export default function RootLayout({ children }) {
           disableTransitionOnChange
         >
           <LoadingProvider>
-            <StoreProvider>
-              <TaskProvider>
-                <Topbar />
+            <AuthProvider>
+              <StoreProvider>
+                <TaskProvider>
+                  <Topbar />
 
-                {children}
+                  {children}
 
-                <LoadingScreen />
-                <Toaster />
-              </TaskProvider>
-            </StoreProvider>
+                  <LoadingScreen />
+                  <Toaster />
+                </TaskProvider>
+              </StoreProvider>
+            </AuthProvider>
           </LoadingProvider>
         </ThemeProvider>
       </body>
