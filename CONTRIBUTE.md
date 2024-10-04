@@ -3,6 +3,7 @@
 First off, thank you for considering contributing to this project! Your contributions help improve the project and make it even better.
 
 ## Table of Contents
+
 - [Contributing to To-Do Done](#contributing-to-to-do-done)
   - [Table of Contents](#table-of-contents)
   - [How Can I Contribute?](#how-can-i-contribute)
@@ -17,6 +18,7 @@ First off, thank you for considering contributing to this project! Your contribu
 ## How Can I Contribute?
 
 There are several ways you can contribute:
+
 - **Report bugs** by opening an issue.
 - **Suggest new features** or improvements.
 - **Contribute code** by fixing bugs or adding features.
@@ -26,6 +28,7 @@ There are several ways you can contribute:
 ## Reporting Issues
 
 If you find a bug or any other issue, please open an issue in the [GitHub issue tracker](link-to-issues) and provide the following details:
+
 1. **A clear description** of the issue.
 2. **Steps to reproduce** the issue.
 3. **Expected behavior** and what is actually happening.
@@ -40,6 +43,7 @@ If you find a bug or any other issue, please open an issue in the [GitHub issue 
 ## Suggesting Features
 
 If you have an idea for a new feature:
+
 - Open an issue and describe the feature you'd like to see.
 - Explain the use case and why it would be beneficial.
 - If possible, link similar implementations or provide mockups/screenshots.
@@ -77,10 +81,10 @@ Please follow these guidelines to maintain code consistency:
 - The pull request should be linked to the issue it resolves (if applicable).
 - The pull request will go through a review process, so be ready to answer questions and address feedback.
 - Your branch should be **up-to-date with the latest `main` branch** before submitting:
-   ```bash
-   git fetch upstream
-   git merge upstream/main
-   ```
+  ```bash
+  git fetch upstream
+  git merge upstream/main
+  ```
 
 ## Getting Help
 

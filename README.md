@@ -1,10 +1,13 @@
 <a id="top"></a>
+
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+
 [![All Contributors](https://img.shields.io/badge/all_contributors-11-orange.svg?style=flat-square)](#contributors-)
+
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 <h1 align="center">Todo Done</h1>
 <h3 align="center">    
- 
+
 
 A modern task management app that uses a Kanban-style board to help users organize and track their tasks. Built with Next.js, it offers drag-and-drop functionality for an intuitive user experience.
 
@@ -15,7 +18,6 @@ A modern task management app that uses a Kanban-style board to help users organi
 <details>
   <summary><h2>:pushpin:Table of Contents: </h2></summary>
 
-  
 - [:zap: Features](#zap-features)
 - [Usage](#usage)
 - [Environment Variables](#environment-variables)
@@ -40,11 +42,9 @@ A modern task management app that uses a Kanban-style board to help users organi
 - [✨Contributing](#contributing)
 - [Contact](#contact)
 - [Backend Repository Link](#backend-repository-link)
-  
+
 </details>
 <hr>
-
-
 
 ## :zap: Features
 
@@ -76,26 +76,29 @@ A modern task management app that uses a Kanban-style board to help users organi
 
 ---
 
-
 <details>
   <summary><h2> :zap:Installation: </h2></summary>
 
 1. Clone the repository:
+
    ```bash
    git clone https://github.com/10kumaranurag01/todo-done.git
    ```
 
 2. Navigate to the project directory:
+
    ```bash
    cd todo-done
    ```
 
 3. Install dependencies:
+
    ```bash
    npm install
    ```
 
 4. Start the development server:
+
    ```bash
    npm run dev
    ```
@@ -106,7 +109,6 @@ A modern task management app that uses a Kanban-style board to help users organi
    ```
 
 ---
-
 
 ## Usage
 
@@ -140,23 +142,20 @@ password=123456
 
 ## API Endpoints
 
-| Method | Endpoint       | Description              |
-|--------|----------------|--------------------------|
-| GET    | `/api/todos`   | Fetch all todos          |
-| POST   | `/api/todos`   | Add a new todo           |
-| PUT    | `/api/todos/:id`| Update an existing todo |
-| DELETE | `/api/todos/:id`| Delete a todo           |
+| Method | Endpoint         | Description             |
+| ------ | ---------------- | ----------------------- |
+| GET    | `/api/todos`     | Fetch all todos         |
+| POST   | `/api/todos`     | Add a new todo          |
+| PUT    | `/api/todos/:id` | Update an existing todo |
+| DELETE | `/api/todos/:id` | Delete a todo           |
 
 ---
 
 </details>
 <hr>
 
-
 <details>
   <summary><h2> :zap:Backend: </h2></summary>
-
-  
 
 This is the backend API for a **Task Management Dashboard** that includes user authentication, task management (CRUD operations), and a Kanban board feature. The backend is built using **Express**, connected to a **MongoDB** database, and uses **JWT** for user authentication. The frontend is built with **Next.js**, and the backend is designed to integrate seamlessly with it.
 
@@ -238,19 +237,19 @@ Before starting, ensure you have:
 
 ### Authentication Routes
 
-| Method | Endpoint         | Description           | Protected |
-|--------|------------------|-----------------------|-----------|
-| POST   | `/api/auth/register` | Register a new user  | No        |
-| POST   | `/api/auth/login`    | Log in an existing user | No     |
+| Method | Endpoint             | Description             | Protected |
+| ------ | -------------------- | ----------------------- | --------- |
+| POST   | `/api/auth/register` | Register a new user     | No        |
+| POST   | `/api/auth/login`    | Log in an existing user | No        |
 
 ### Task Management Routes
 
-| Method | Endpoint          | Description                       | Protected |
-|--------|-------------------|-----------------------------------|-----------|
-| GET    | `/api/tasks`       | Fetch all tasks for the logged-in user | Yes    |
-| POST   | `/api/tasks`       | Create a new task                | Yes       |
-| PUT    | `/api/tasks/:id`   | Update an existing task          | Yes       |
-| DELETE | `/api/tasks/:id`   | Delete a task                    | Yes       |
+| Method | Endpoint         | Description                            | Protected |
+| ------ | ---------------- | -------------------------------------- | --------- |
+| GET    | `/api/tasks`     | Fetch all tasks for the logged-in user | Yes       |
+| POST   | `/api/tasks`     | Create a new task                      | Yes       |
+| PUT    | `/api/tasks/:id` | Update an existing task                | Yes       |
+| DELETE | `/api/tasks/:id` | Delete a task                          | Yes       |
 
 ### Example API Responses
 
@@ -326,10 +325,10 @@ Before starting, ensure you have:
 
 You need to define the following environment variables in your `.env` file:
 
-| Variable   | Description                            |
-|------------|----------------------------------------|
-| `MONGO_URI`| MongoDB connection string              |
-| `JWT_SECRET` | Secret key for signing JWT tokens     |
+| Variable     | Description                       |
+| ------------ | --------------------------------- |
+| `MONGO_URI`  | MongoDB connection string         |
+| `JWT_SECRET` | Secret key for signing JWT tokens |
 
 ## Running the Project in Development
 
@@ -355,7 +354,6 @@ To deploy the backend:
 2. Deploy the app on your preferred platform.
 3. Ensure the frontend is correctly pointing to the deployed API.
 
-
 </details>
 
 <hr>
@@ -363,6 +361,7 @@ To deploy the backend:
 ## Contributors ✨
 
 Thanks to these amazing contributors:
+
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
 <!-- markdownlint-disable -->
@@ -396,10 +395,9 @@ Thanks to these amazing contributors:
 
 This project follows the [All Contributors](https://allcontributors.org/) specification. Contributions of any kind are welcome!
 
-
 ## ✨Contributing
 
-Check  out the `CONTRIBUTE.md` file for guidelines on how
+Check out the `CONTRIBUTE.md` file for guidelines on how
 to contribute to this project.
 
 ---
@@ -424,8 +422,6 @@ This project is licensed under the [MIT License](./LICENSE).
 
 [https://github.com/10kumaranurag01/todo-done-express](https://github.com/10kumaranurag01/todo-done-express).
 
-
-
 <div>
   <h2><img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f64f_1f3fb/512.webp" width="35" height="35"> Support </h2>
 </div>
@@ -435,4 +431,3 @@ This project is licensed under the [MIT License](./LICENSE).
 </div> <br>
 
 <a href="#top" style="position: fixed; bottom: 20px; right: 20px; background-color: black ; color: white; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; border-radius: 5px; font-family: Arial; font-size: 16px;">Go to Top</a>
-
