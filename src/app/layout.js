@@ -3,7 +3,7 @@ import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 import Topbar from "@/components/Topbar";
 import LoadingScreen from "@/components/LoadingScreen/LoadingScreen";
-import StoreProvider from "./StoreProvider";
+import StoreProvider from "../lib/context/StoreProvider";
 import { TaskProvider } from "@/lib/context/TaskContext";
 import { LoadingProvider } from "@/lib/context/LoadingContext";
 import { ThemeProvider } from "@/components/Providers/ThemeProvider";
