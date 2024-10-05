@@ -1,9 +1,9 @@
-"use client"
-
+'use client'
+import { useEffect } from "react"
+import { useRouter } from "next/navigation"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
-import { useRouter } from "next/navigation"
 import { useToast } from "@/hooks/use-toast"
 import {
     Card,
@@ -42,7 +42,7 @@ export default function LoginPage() {
     const router = useRouter()
     const { toast } = useToast()
     const dispatch = useAppDispatch()
-    const { fetchTasks } = useTasks();
+    const { fetchTasks } = useTasks()
     const axios = useAxios()
 
     const form = useForm({
@@ -53,6 +53,14 @@ export default function LoginPage() {
         },
     })
 
+    // Check if the token exists in localStorage and redirect to dashboard if present
+    useEffect(() => {
+        const token = localStorage.getItem("token")
+        if (token) {
+            router.push("/dashboard")
+        }
+    }, [router])
+
     const onSubmit = async (data) => {
         try {
             toast({ description: "Logging In... 🫸🏻" })
@@ -61,6 +69,8 @@ export default function LoginPage() {
             document.cookie = ` token = ${response.data.token}`;
             toast({ description: "Log In Successfull ✅" })
             dispatch(setAuth()) 
+            toast({ description: "Log In Successful ✅" })
+            dispatch(setAuth())
             fetchTasks()
             router.push("/dashboard")
         } catch (error) {
@@ -91,7 +101,6 @@ export default function LoginPage() {
                                     </FormItem>
                                 )}
                             />
-
                             <FormField
                                 control={form.control}
                                 name="password"
