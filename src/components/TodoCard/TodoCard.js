@@ -12,21 +12,22 @@ import { useToast } from "@/hooks/use-toast";
 import DeleteTodo from "./DeleteTodo";
 import { formatDate } from "@/utils/formatDate";
 import { useAxios } from "@/lib/axiosInstance";
+import { useAuth } from "@/lib/context/Auth.context";
 
 const TodoCard = ({ todo }) => {
   const { fetchTasks } = useTasks();
   const { toast } = useToast();
   const axios = useAxios();
+  const { session } = useAuth();
   const formattedDate = formatDate(todo.dueDate);
 
   const handleDelete = async () => {
     try {
       toast({ description: "Deleting Todo... 🫸🏻" });
-      const token = localStorage.getItem("token");
       const todoId = todo._id;
 
       await axios.delete(`/api/tasks/${todoId}`, {
-        headers: { Authorization: `${token}` },
+        headers: { Authorization: `${session}` },
       });
     } catch (error) {
       toast({ description: "Oops! Something went wrong 🙁" });
