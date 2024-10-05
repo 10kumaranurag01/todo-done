@@ -11,7 +11,7 @@ export const TaskProvider = ({ children }) => {
     const [tasks, setTasks] = useState([]);
     const axios = useAxios()
 
-    // Fetch tasks from the API
+    // Fetch tasks from the API  
     const fetchTasks = async () => {
         try {
             const token = localStorage.getItem('token');

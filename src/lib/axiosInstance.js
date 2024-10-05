@@ -10,7 +10,7 @@ export const useAxios = () => {
     baseURL: BASE_URL,
     timeout: 15000, // 15 seconds
     headers: { 'Content-Type': 'application/json' }
-  });
+  }); 
 
   // Request interceptor to show loading screen
   axiosInstance.interceptors.request.use(

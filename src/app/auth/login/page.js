@@ -58,8 +58,9 @@ export default function LoginPage() {
             toast({ description: "Logging In... 🫸🏻" })
             const response = await axios.post('/api/auth/login', data)
             localStorage.setItem("token", response.data.token)
+            document.cookie = ` token = ${response.data.token}`;
             toast({ description: "Log In Successfull ✅" })
-            dispatch(setAuth())
+            dispatch(setAuth()) 
             fetchTasks()
             router.push("/dashboard")
         } catch (error) {

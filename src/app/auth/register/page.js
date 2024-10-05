@@ -55,7 +55,9 @@ export default function RegisterPage() {
     const onSubmit = async (data) => {
         try {
             toast({ description: "Signing Up... 🫸🏻" })
-            await axios.post('/api/auth/register', data)
+            const response = await axios.post('/api/auth/register', data)
+            localStorage.setItem("token", response.data.token)
+            document.cookie = ` token = ${response.data.token}`;
             toast({ description: "Log in with your credentials 😊" })
             router.push("/auth/login")
         } catch (error) {

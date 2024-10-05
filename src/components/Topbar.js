@@ -42,6 +42,7 @@ export default function Topbar() {
   const handleLogout = () => {
     toast({ description: "Logging Out... 🔙" });
     localStorage.removeItem("token");
+    document.cookie = ` token=${""} `;
     dispatch(logout());
     emptyTasks(); // empty the tasks in context
     toast({
