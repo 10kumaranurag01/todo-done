@@ -1,10 +1,10 @@
-'use client'
-import { useEffect } from "react"
-import { useRouter } from "next/navigation"
+"use client"
+
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
-import { useToast } from "@/hooks/use-toast"
+import { useRouter } from "next/navigation"
+import { useAxios } from "@/lib/axiosInstance"
 import {
     Card,
     CardContent,
@@ -23,64 +23,52 @@ import {
     FormMessage,
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
-import { useAppDispatch } from '@/lib/store/hooks'
-import { setAuth } from "@/lib/store/features/auth/authSlice"
-import { useTasks } from '../../../lib/context/TaskContext';
-import { useAxios } from "@/lib/axiosInstance"
-import Link from "next/link"
+import { useToast } from "@/hooks/use-toast"
 
-const loginSchema = z.object({
+const registerSchema = z.object({
     username: z.string().min(2, {
         message: "Username must be at least 2 characters.",
+    }),
+    email: z.string().email({
+        message: "Invalid email address.",
     }),
     password: z.string().min(6, {
         message: "Password must be at least 6 characters.",
     }),
 })
 
-export default function LoginPage() {
+export default function FotgotPasswordPage() {
     const router = useRouter()
     const { toast } = useToast()
-    const dispatch = useAppDispatch()
-    const { fetchTasks } = useTasks()
+    const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
     const axios = useAxios()
 
     const form = useForm({
-        resolver: zodResolver(loginSchema),
+        resolver: zodResolver(registerSchema),
         defaultValues: {
             username: "",
+            email: "",
             password: "",
         },
     })
 
-    // Check if the token exists in localStorage and redirect to dashboard if present
-    useEffect(() => {
-        const token = localStorage.getItem("token")
-        if (token) {
-            router.push("/dashboard")
-        }
-    }, [router])
-
     const onSubmit = async (data) => {
         try {
-            toast({ description: "Logging In... 🫸🏻" })
-            const response = await axios.post('/api/auth/login', data)
-            localStorage.setItem("token", response.data.token)
-            toast({ description: "Log In Successful ✅" })
-            dispatch(setAuth())
-            fetchTasks()
-            router.push("/dashboard")
+            toast({ description: "Resetting Password... 🫸🏻" })
+            await axios.post(`${BASE_URL}/api/auth/forgotpassword`, data)
+            toast({ description: "Log in with your credentials 😊" })
+            router.push("/auth/login")
         } catch (error) {
-            toast({ description: "Log In Failed ❌" })
+            console.error("Password reset failed", error)
         }
     }
 
     return (
-        <div className="flex justify-center items-center h-[95vh]">
+        <div className="flex justify-center items-center h-[95vh] dark">
             <Card className="w-[350px]">
                 <CardHeader>
-                    <CardTitle>Log In</CardTitle>
-                    <CardDescription>Log in to unlock your productivity! 💪</CardDescription>
+                    <CardTitle>Reset Your Password</CardTitle>
+                    <CardDescription>Enter Details to reset your password</CardDescription>
                 </CardHeader>
                 <CardContent>
                     <Form {...form}>
@@ -98,15 +86,27 @@ export default function LoginPage() {
                                     </FormItem>
                                 )}
                             />
+
+                            <FormField
+                                control={form.control}
+                                name="email"
+                                render={({ field }) => (
+                                    <FormItem>
+                                        <FormLabel>Email</FormLabel>
+                                        <FormControl>
+                                            <Input type="email" placeholder="Enter your email" {...field} />
+                                        </FormControl>
+                                        <FormMessage />
+                                    </FormItem>
+                                )}
+                            />
+
                             <FormField
                                 control={form.control}
                                 name="password"
                                 render={({ field }) => (
                                     <FormItem>
-                                        <FormLabel className="flex justify-between">
-                                            Password
-                                            <Link href="/auth/forgetPassword" className="text-xs text-gray-400 hover:cursor-pointer hover:text-white">Forgot password?</Link>
-                                        </FormLabel>
+                                        <FormLabel>New Password</FormLabel>
                                         <FormControl>
                                             <Input type="password" placeholder="Enter your password" {...field} />
                                         </FormControl>
@@ -114,10 +114,8 @@ export default function LoginPage() {
                                     </FormItem>
                                 )}
                             />
-                            <div className="flex flex-col space-y-2">
-                                <Button type="submit" className="flex justify-center">Login</Button>
-                                <p className="mt-4 text-xs text-center text-balance">Don&apos;t have an account? <Link href="/auth/register" className="underline">Sign Up</Link></p>
-                            </div>
+
+                            <Button type="submit">Reset Password</Button>
                         </form>
                     </Form>
                 </CardContent>
