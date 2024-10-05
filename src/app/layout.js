@@ -3,18 +3,19 @@ import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 import Topbar from "@/components/Topbar";
 import LoadingScreen from "@/components/LoadingScreen/LoadingScreen";
-import StoreProvider from "./StoreProvider";
+import StoreProvider from "../lib/context/StoreProvider";
 import { TaskProvider } from "@/lib/context/TaskContext";
 import { LoadingProvider } from "@/lib/context/LoadingContext";
 import { ThemeProvider } from "@/components/Providers/ThemeProvider";
+import { AuthProvider } from "@/lib/context/Auth.context";
 
 const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
+  src: "../assets/fonts/GeistVF.woff",
   variable: "--font-geist-sans",
   weight: "100 900",
 });
 const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
+  src: "../assets/fonts/GeistMonoVF.woff",
   variable: "--font-geist-mono",
   weight: "100 900",
 });
@@ -38,16 +39,18 @@ export default function RootLayout({ children }) {
           disableTransitionOnChange
         >
           <LoadingProvider>
-            <StoreProvider>
-              <TaskProvider>
-                <Topbar />
+            <AuthProvider>
+              <StoreProvider>
+                <TaskProvider>
+                  <Topbar />
 
-                {children}
+                  {children}
 
-                <LoadingScreen />
-                <Toaster />
-              </TaskProvider>
-            </StoreProvider>
+                  <LoadingScreen />
+                  <Toaster />
+                </TaskProvider>
+              </StoreProvider>
+            </AuthProvider>
           </LoadingProvider>
         </ThemeProvider>
       </body>

@@ -1,53 +1,30 @@
 "use client";
 
 import Link from "next/link";
-import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 import { useAppDispatch } from "@/lib/store/hooks";
-import { useAppSelector } from "@/lib/store/hooks";
-import { logout } from "@/lib/store/features/auth/authSlice";
 import { useToast } from "@/hooks/use-toast";
 import { useTasks } from "../lib/context/TaskContext";
 import { ModeToggle } from "./ui/mode-toggle";
+import { useAuth } from "@/lib/context/Auth.context";
+import { useMemo } from "react";
 
 export default function Topbar() {
   const router = useRouter();
   const dispatch = useAppDispatch();
-  const { isAuthenticated } = useAppSelector((state) => state.auth);
   const { toast } = useToast();
-  const { fetchTasks, emptyTasks } = useTasks();
-  const [token, setToken] = useState(null);
+  const { emptyTasks } = useTasks();
+  const { session, logout } = useAuth();
+  const isAuthenticated = useMemo(() => !!session, [session]);
 
-  // Check authentication status on component mount
-  useEffect(() => {
-    const storedToken = localStorage.getItem("token");
-
-    if (storedToken) {
-      setToken(storedToken);
-      fetchTasks(); // Fetch tasks on first render
-    } else {
-      router.push("/");
-    }
-  }, [router, token]);
-
-  const handleLogout = () => {
+  const handleLogout = async () => {
     toast({ description: "Logging Out... 🔙" });
-    localStorage.removeItem("token");
-    dispatch(logout());
     emptyTasks(); // empty the tasks in context
+    await logout();
     toast({
-      description: "You’ve successfully logged out. See you next time! 😊",
+      description: "You've successfully logged out. See you next time! 😊",
     });
-    router.push("/auth/login");
   };
 
   return (
@@ -58,26 +35,18 @@ export default function Topbar() {
       <div className="hidden lg:flex items-center space-x-4">
         <ModeToggle />
         {isAuthenticated ? (
-          <>
-            <Button onClick={handleLogout}>Logout</Button>
-          </>
-        ) : (
-          <></>
-        )}
+          <Button onClick={handleLogout}>Logout</Button>
+        ) : null}
       </div>
 
       {/* Mobile menu button */}
       <div className="lg:hidden ml-auto flex space-x-4">
-      <ModeToggle />
+        <ModeToggle />
         {isAuthenticated ? (
-          <>
-            <Button onClick={handleLogout} className="text-xs">
-              Logout
-            </Button>
-          </>
-        ) : (
-          <></>
-        )}
+          <Button onClick={handleLogout} className="text-xs">
+            Logout
+          </Button>
+        ) : null}
       </div>
     </header>
   );

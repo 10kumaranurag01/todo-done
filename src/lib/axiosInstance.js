@@ -1,6 +1,5 @@
-import axios from 'axios';
-import { useLoading } from './context/LoadingContext';
-
+import axios from "axios";
+import { useLoading } from "./context/LoadingContext";
 
 export const useAxios = () => {
   const { handleLoading } = useLoading();
@@ -9,7 +8,7 @@ export const useAxios = () => {
   const axiosInstance = axios.create({
     baseURL: BASE_URL,
     timeout: 15000, // 15 seconds
-    headers: { 'Content-Type': 'application/json' }
+    headers: { "Content-Type": "application/json" },
   });
 
   // Request interceptor to show loading screen
@@ -20,7 +19,7 @@ export const useAxios = () => {
     },
     (error) => {
       return Promise.reject(error);
-    },
+    }
   );
 
   // Response interceptor to hide loading screen
@@ -32,7 +31,7 @@ export const useAxios = () => {
     (error) => {
       handleLoading(false);
       return Promise.reject(error);
-    },
+    }
   );
 
   return axiosInstance;
