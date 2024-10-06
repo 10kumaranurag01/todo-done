@@ -1,7 +1,7 @@
 <a id="top"></a>
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-11-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-12-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 <h1 align="center">Todo Done</h1>
 <h3 align="center">    
@@ -379,6 +379,7 @@ Thanks to these amazing contributors:
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/akshatshukla13"><img src="https://avatars.githubusercontent.com/u/103410083?v=4?s=100" width="100px;" alt="Akshat Shukla"/><br /><sub><b>Akshat Shukla</b></sub></a><br /><a href="https://github.com/10kumaranurag01/todo-done/commits?author=akshatshukla13" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/AnanteshG"><img src="https://avatars.githubusercontent.com/u/139615557?v=4?s=100" width="100px;" alt="Anantesh G"/><br /><sub><b>Anantesh G</b></sub></a><br /><a href="https://github.com/10kumaranurag01/todo-done/commits?author=AnanteshG" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/XronTrix10"><img src="https://avatars.githubusercontent.com/u/105228475?v=4?s=100" width="100px;" alt="Xron Trix"/><br /><sub><b>Xron Trix</b></sub></a><br /><a href="https://github.com/10kumaranurag01/todo-done/commits?author=XronTrix10" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/SauravGupta123"><img src="https://avatars.githubusercontent.com/u/103091748?v=4?s=100" width="100px;" alt="Saurav Gupta"/><br /><sub><b>Saurav Gupta</b></sub></a><br /><a href="https://github.com/10kumaranurag01/todo-done/commits?author=SauravGupta123" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>
