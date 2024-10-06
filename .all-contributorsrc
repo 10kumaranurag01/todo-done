@@ -77,8 +77,16 @@
       "avatar_url": "https://avatars.githubusercontent.com/u/139615557?v=4",
       "profile": "https://github.com/AnanteshG",
       "contributions": ["code"]
+    },
+    {
+      "login": "XronTrix10",
+      "name": "Xron Trix",
+      "avatar_url": "https://avatars.githubusercontent.com/u/105228475?v=4",
+      "profile": "https://github.com/XronTrix10",
+      "contributions": ["code"]
     }
   ],
   "contributorsPerLine": 7,
   "linkToUsage": false
 }
+
