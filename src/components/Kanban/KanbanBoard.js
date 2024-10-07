@@ -12,6 +12,7 @@ import { useTasks } from "../../lib/context/TaskContext";
 import PopOverTooltip from "./PopOverTooltip";
 import { useToast } from "@/hooks/use-toast";
 import { useAxios } from "@/lib/axiosInstance";
+import { useAuth } from "@/lib/context/Auth.context";
 
 const KanbanBoard = () => {
   const [sortedTasks, setSortedTasks] = useState({
@@ -22,6 +23,7 @@ const KanbanBoard = () => {
   const { tasks, fetchTasks } = useTasks();
   const { toast } = useToast();
   const axios = useAxios();
+  const { session } = useAuth();
 
   useEffect(() => {
     const filterTasks = async () => {
@@ -85,7 +87,6 @@ const KanbanBoard = () => {
   };
 
   const updateTaskStatusInDB = async (movedTask) => {
-    const token = localStorage.getItem("token");
     const payload = {
       title: movedTask.title,
       description: movedTask.description,
@@ -95,7 +96,7 @@ const KanbanBoard = () => {
     };
     try {
       await axios.put(`/api/tasks/${movedTask._id}`, payload, {
-        headers: { Authorization: `${token}` },
+        headers: { Authorization: `${session}` },
       });
     } catch (error) {
       toast({
