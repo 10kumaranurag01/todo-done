@@ -9,6 +9,7 @@ import { useTasks } from "../lib/context/TaskContext";
 import { ModeToggle } from "./ui/mode-toggle";
 import { useAuth } from "@/lib/context/Auth.context";
 import { useMemo } from "react";
+import { Github } from "lucide-react";
 
 export default function Topbar() {
   const router = useRouter();
@@ -34,6 +35,22 @@ export default function Topbar() {
       </Link>
       <div className="hidden lg:flex items-center space-x-4">
         <ModeToggle />
+
+        {/* GitHub Button */}
+        <Button
+          variant="outline"
+          size="icon"
+          onClick={() =>
+            window.open(
+              "https://github.com/10kumaranurag01/todo-done",
+              "_blank"
+            )
+          }
+          className="w-[110%] px-4 py-2"
+        >
+          <Github />
+        </Button>
+
         {isAuthenticated ? (
           <Button onClick={handleLogout}>Logout</Button>
         ) : null}
@@ -42,6 +59,19 @@ export default function Topbar() {
       {/* Mobile menu button */}
       <div className="lg:hidden ml-auto flex space-x-4">
         <ModeToggle />
+        <Button
+          variant="outline"
+          size="icon"
+          onClick={() =>
+            window.open(
+              "https://github.com/10kumaranurag01/todo-done",
+              "_blank"
+            )
+          }
+          className="py-2"
+        >
+          <Github />
+        </Button>
         {isAuthenticated ? (
           <Button onClick={handleLogout} className="text-xs">
             Logout
