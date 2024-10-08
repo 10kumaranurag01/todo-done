@@ -59,7 +59,6 @@ export default function Topbar() {
               clipRule="evenodd"
             />
           </svg>
-          <span className="ml-2">Git</span>
         </Button>
 
         {isAuthenticated ? (
@@ -93,7 +92,6 @@ export default function Topbar() {
               clipRule="evenodd"
             />
           </svg>
-          <span className="ml-2">Git</span>
         </Button>
         {isAuthenticated ? (
           <Button onClick={handleLogout} className="text-xs">
