@@ -68,7 +68,7 @@ export default function Topbar() {
               "_blank"
             )
           }
-          className="w-[50%] px-4 py-2"
+          className="py-2"
         >
           <Github />
         </Button>
