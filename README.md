@@ -1,11 +1,12 @@
 <a id="top"></a>
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+
 [![All Contributors](https://img.shields.io/badge/all_contributors-13-orange.svg?style=flat-square)](#contributors-)
+
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 <h1 align="center">Todo Done</h1>
-<h3 align="center">    
-
+<h3 align="center">
 
 A modern task management app that uses a Kanban-style board to help users organize and track their tasks. Built with Next.js, it offers drag-and-drop functionality for an intuitive user experience.
 

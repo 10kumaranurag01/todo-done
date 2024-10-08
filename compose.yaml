@@ -1,7 +1,7 @@
 services:
   next-app:
     container_name: todo
-    build: 
+    build:
       context: .
       dockerfile: Dockerfile
     ports:
