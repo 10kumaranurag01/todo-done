@@ -27,14 +27,14 @@ const MobileNav = ({
           </Link>
           <nav className="grid gap-2 text-lg font-medium mt-14">
             <Button
-              className={`w-full text-left py-2 px-4 ${selectedPage === "todos" ? "bg-gray-900 text-white dark:bg-gray-850 dark:text-gray-200 dark:hover:bg-gray-800" : "bg-gray-100 text-gray-900 dark:bg-gray-600 dark:text-gray-400 dark:hover:bg-gray-550"}`}
+              className={`w-full text-left py-2 px-4 ${selectedPage === "todos" ? "bg-gray-900 text-white dark:bg-[#FAFAFA] dark:text-gray-900 dark:hover:bg-[#F5F5F5]" : "bg-gray-100 text-gray-900 dark:bg-[#262626] dark:text-gray-400 dark:hover:bg-[#333333]"}`}
               variant="default"
               onClick={() => setSelectedPage("todos")}
             >
               # To-Dos List
             </Button>
             <Button
-              className={`w-full text-left py-2 px-4 mt-2 ${selectedPage === "kanban" ? "bg-gray-900 text-white dark:bg-gray-850 dark:text-gray-200 dark:hover:bg-gray-800" : "bg-gray-100 text-gray-900 dark:bg-gray-600 dark:text-gray-400 dark:hover:bg-gray-550"}`}
+              className={`w-full text-left py-2 px-4 mt-2 ${selectedPage === "kanban" ? "bg-gray-900 text-white dark:bg-[#FAFAFA] dark:text-gray-900 dark:hover:bg-[#F5F5F5]" : "bg-gray-100 text-gray-900 dark:bg-[#262626] dark:text-gray-400 dark:hover:bg-[#333333]"}`}
               variant="default"
               onClick={() => setSelectedPage("kanban")}
             >
