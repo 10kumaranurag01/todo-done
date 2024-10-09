@@ -18,24 +18,24 @@ const MobileNav = ({
             <span className="sr-only">Toggle navigation menu</span>
           </Button>
         </SheetTrigger>
-        <SheetContent side="left" className="flex flex-col border-gray-600">
+        <SheetContent side="left" className="flex flex-col border-gray-600 dark:border-gray-900">
           <Link
             href="/"
             className="text-xl font-bold items-center flex justify-center"
           >
-            To-Do Done 📝
+            To-Do Done 
           </Link>
           <nav className="grid gap-2 text-lg font-medium mt-14">
             <Button
-              className={`w-full text-left py-2 px-4 `}
-              variant={`${selectedPage === "todos" ? "secondary" : "default"}`}
+              className={`w-full text-left py-2 px-4 ${selectedPage === "todos" ? "bg-gray-900 text-white dark:bg-white dark:text-black" : "bg-white text-black dark:bg-[#262626] dark:text-white"}`}
+              variant="default"
               onClick={() => setSelectedPage("todos")}
             >
               # To-Dos List
             </Button>
             <Button
-              className={`w-full text-left py-2 px-4 mt-2`}
-              variant={`${selectedPage === "kanban" ? "secondary" : "default"}`}
+              className={`w-full text-left py-2 px-4 mt-2 ${selectedPage === "kanban" ? "bg-gray-900 text-white dark:bg-white dark:text-black" : "bg-white text-black dark:bg-[#262626] dark:text-white"}`}
+              variant="default"
               onClick={() => setSelectedPage("kanban")}
             >
               # Kanban Board
