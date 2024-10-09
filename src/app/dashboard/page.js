@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-
+import { AddEditTodoDialog } from "../../components/AddEditTodoDialog";
 import { useTasks } from "../../lib/context/TaskContext";
 import TodosList from "@/components/TodoList/TodosList";
 import SideMenu from "@/components/nav/SideMenu";
@@ -32,6 +32,10 @@ export default function Dashboard() {
           {selectedPage === "todos" && <TodosList tasks={tasks} />}
           {selectedPage === "kanban" && <KanbanBoard initTasks={tasks} />}
         </main>
+        
+        <div className="fixed bottom-10 right-8">
+          <AddEditTodoDialog btnText={"Add Todo"} />
+        </div>
       </div>
     </div>
   );
