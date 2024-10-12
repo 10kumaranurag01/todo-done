@@ -130,7 +130,7 @@ const LandingPage = () => {
               <Link href="/auth/register">
                 <Button
                   size="lg"
-                  className="text-lg px-8 py-6 rounded-full shadow-lg shadow-gray-400 dark:shadow-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-300"
+                  className="text-lg px-8 py-6 rounded-full shadow-lg shadow-gray-400 dark:shadow-gray-700 bg-black text-white hover:bg-gray-300 hover:text-black transition-all duration-300"
                 >
                   Start For Free
                   <ArrowRightIcon className="ml-2 h-5 w-5" />
