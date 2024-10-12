@@ -40,9 +40,7 @@ const LandingPage = () => {
                   <Link href="/dashboard">
                     <Button
                       size="lg"
-                      // className="text-lg px-8 py-6 rounded-full shadow-lg shadow-gray-400 dark:shadow-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-300"
-                      className="text-lg px-8 py-6 rounded-full shadow-lg shadow-gray-400 dark:shadow-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 hover:text-black dark:hover:text-black transition-all duration-300"
-                    >
+                      className="text-lg px-8 py-6 rounded-full shadow-lg shadow-gray-400 dark:shadow-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-300">
                       Go to Dashboard
                       <ArrowRightIcon className="ml-2 h-5 w-5" />
                     </Button>
