@@ -5,6 +5,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import registerSchema from "@/utils/validation/registerSchema";
 import { Button } from "@/components/ui/button";
 import { useForm } from "react-hook-form";
+import PasswordStrengthBar from "react-password-strength-bar"
 import {
   Form,
   FormControl,
@@ -81,11 +82,15 @@ const RegisterForm = () => {
             <FormItem>
               <FormLabel>Password</FormLabel>
               <FormControl>
+              <div>
+
                 <Input
                   type="password"
                   placeholder="Enter your password"
                   {...field}
                 />
+                <PasswordStrengthBar password={field.value} />
+              </div>
               </FormControl>
               <FormMessage />
             </FormItem>
