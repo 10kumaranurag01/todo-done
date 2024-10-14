@@ -20,9 +20,9 @@ import { useAuth } from "@/lib/context/Auth.context";
 import { useToast } from "@/hooks/use-toast";
 import { useTasks } from "../lib/context/TaskContext";
 import { useAxios } from "@/lib/axiosInstance";
-import { Plus, EditIcon } from "lucide-react";
+import { EditIcon } from "lucide-react";
 
-export const AddEditTodoDialog = ({ todo, btnText }) => {
+const AddEditTodoDialog = ({ todo, btnText }) => {
   const [initialTodo, setInitialTodo] = useState({
     title: "",
     description: "",
@@ -107,17 +107,11 @@ export const AddEditTodoDialog = ({ todo, btnText }) => {
     <Dialog open={openDialog} onOpenChange={setOpenDialog}>
       <DialogTrigger asChild>
         <Button
-          className="w-12 h-12 rounded-full flex justify-center items-center
-          bg-black text-white
-          dark:bg-white dark:text-black
-            hover:bg-[hsl(var(--primary)/90)]
-          dark:hover:bg-gray-300"
           onClick={() => setOpenDialog(true)}
           variant={btnText === "Add Todo" ? "secondary" : "ghost"}
-          title={btnText === "Add Todo" ? "Add To Do" : "Edit To Do"}
         >
           {btnText === "Add Todo" ? (
-            <Plus height={16} width={16} />
+            "Add To Do"
           ) : (
             <EditIcon height={16} width={16} />
           )}
@@ -189,3 +183,5 @@ export const AddEditTodoDialog = ({ todo, btnText }) => {
     </Dialog>
   );
 };
+
+export default AddEditTodoDialog;
