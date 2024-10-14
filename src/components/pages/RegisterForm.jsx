@@ -18,7 +18,9 @@ import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
 import { useAxios } from "@/lib/axiosInstance";
 import Link from "next/link";
-
+const capitalizeFirstLetter = (string) => {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+};
 const RegisterForm = () => {
   const router = useRouter();
   const { toast } = useToast();
@@ -43,6 +45,10 @@ const RegisterForm = () => {
       console.error("Registration failed", error);
     }
   };
+  const scoreWords = ["too short","weak", "okay", "good", "strong", "very strong"].map(
+    (word) => capitalizeFirstLetter(word)
+  );
+  const shortScoreWord = capitalizeFirstLetter("too short");
 
   return (
     <Form {...form}>
@@ -89,7 +95,7 @@ const RegisterForm = () => {
                   placeholder="Enter your password"
                   {...field}
                 />
-                <PasswordStrengthBar password={field.value} />
+                <PasswordStrengthBar password={field.value}  scoreWords={scoreWords}  shortScoreWord={shortScoreWord}/>
               </div>
               </FormControl>
               <FormMessage />
