@@ -10,7 +10,6 @@ import { ModeToggle } from "./ui/mode-toggle";
 import { useAuth } from "@/lib/context/Auth.context";
 import { useMemo } from "react";
 import { Github } from "lucide-react";
-import LogoutDialog from "./LogoutDialog"; // Import the LogoutDialog component
 
 export default function Topbar() {
   const router = useRouter();
@@ -53,7 +52,7 @@ export default function Topbar() {
         </Button>
 
         {isAuthenticated ? (
-          <LogoutDialog handleLogout={handleLogout} />
+          <Button onClick={handleLogout}>Logout</Button>
         ) : null}
       </div>
 
@@ -74,7 +73,9 @@ export default function Topbar() {
           <Github />
         </Button>
         {isAuthenticated ? (
-          <LogoutDialog handleLogout={handleLogout} className="text-xs" />
+          <Button onClick={handleLogout} className="text-xs">
+            Logout
+          </Button>
         ) : null}
       </div>
     </header>
