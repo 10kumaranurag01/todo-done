@@ -1,14 +1,13 @@
-"use client"
+"use client";
 
 import {
-    Dialog,
-    DialogContent,
-    DialogDescription,
-    DialogFooter,
-    DialogHeader,
-    DialogTitle,
-    DialogTrigger,
-    DialogClose
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -18,202 +17,211 @@ import PrioritySelector from "./TodoCard/PrioritySelector";
 import StatusSelector from "./TodoCard/StatusSelector";
 import Image from "next/image";
 import editIcon from "../assets/icons8-edit.svg";
-import { useToast } from "@/hooks/use-toast"
-import { useTasks } from '../lib/context/TaskContext';
+import { useToast } from "@/hooks/use-toast";
+import { useTasks } from "../lib/context/TaskContext";
 import { useAxios } from "@/lib/axiosInstance";
-import { FaGoogle } from 'react-icons/fa'; 
-import { FaApple } from 'react-icons/fa'; 
-import { createEvent } from 'ics';
+import { FaGoogle, FaApple } from "react-icons/fa";
+import { createEvent } from "ics";
 
-
+const initialTodoState = {
+  title: "",
+  description: "",
+  status: "",
+  dueDate: null,
+  priority: "",
+};
 
 const AddEditTodoDialog = ({ todo, btnText }) => {
-    const [initialTodo, setInitialTodo] = useState({
-        title: "",
-        description: "",
-        status: "",
-        dueDate: null,
-        priority: ""
-    });
-    const [title, setTitle] = useState("");
-    const [description, setDescription] = useState("");
-    const [status, setStatus] = useState("");
-    const [dueDate, setDueDate] = useState(null);
-    const [priority, setPriority] = useState("");
-    const { toast } = useToast()
-    const { fetchTasks } = useTasks();
-    const axios = useAxios();
-    const today = new Date();
+  const [todoData, setTodoData] = useState(initialTodoState);
+  const [isLoading, setIsLoading] = useState(false);
+  const { toast } = useToast();
+  const { fetchTasks } = useTasks();
+  const axios = useAxios();
 
-    const formatDate = (date) => {
-        const dt = new Date(date);
-        return dt.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
-    };
+  useEffect(() => {
+    if (todo) {
+      const { _id, ...rest } = todo;
+      setTodoData(rest);
+    }
+  }, [todo]);
 
-    useEffect(() => {
-        if (todo) {
-            const { _id: id, title, description, status, dueDate, priority } = todo;
-            setInitialTodo({ title, description, status, dueDate, priority });
-            setTitle(title);
-            setDescription(description);
-            setStatus(status);
-            setDueDate(dueDate);
-            setPriority(priority);
-        }
-    }, [todo]);
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setTodoData((prev) => ({ ...prev, [name]: value }));
+  };
 
-    const handleSubmit = async (e) => {
-        e.preventDefault(); //handling re-rendering.
-        if (title === "" || description === "" || status === "" || dueDate == null || priority === "") {
-            toast({ description: "Try again, all fields are required 🙁" });
-            return;
-        }
+  const validateForm = () => {
+    const { title, description, status, dueDate, priority } = todoData;
+    if (!title || !description || !status || !dueDate || !priority) {
+      toast({ description: "All fields are required 🙁" });
+      return false;
+    }
+    return true;
+  };
 
-        try {
-            toast({ description: "Editing To-Do... 🫸🏻" })
-            const token = localStorage.getItem("token");
-            const todoData = { title, description, status, dueDate, priority };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!validateForm()) return;
 
-            if (todo) {
-                // Edit todo
-                await axios.put(`api/tasks/${todo._id}`, todoData, {
-                    headers: { Authorization: `${token}` },
-                });
-            } else {
-                // Add new todo
-                toast({ description: "Creating To-Do... 🫸🏻" })
-                await axios.post('/api/tasks', todoData, {
-                    headers: { Authorization: `${token}` },
-                });
-            }
-        } catch (error) {
-            toast({ description: "Oops ! Something went wrong 🙁" })
-        } finally {
-            fetchTasks();
-            toast({ description: "Done 😊" })
-        }
-    };
+    setIsLoading(true);
+    try {
+      const token = localStorage.getItem("token");
+      const endpoint = todo ? `api/tasks/${todo._id}` : "/api/tasks";
+      const method = todo ? "put" : "post";
 
-    const handleDialogClose = () => {
-        // Reset form fields to initial state
-        setTitle(initialTodo.title);
-        setDescription(initialTodo.description);
-        setStatus(initialTodo.status);
-        setDueDate(initialTodo.dueDate);
-        setPriority(initialTodo.priority);
-    };
+      await axios[method](endpoint, todoData, {
+        headers: { Authorization: `${token}` },
+      });
 
-    const handleAddToGoogleCalendar = () => {
-        const eventDetails = {
-            text: title, // Event title
-            dates: formatDate(dueDate), // Event start and end date in UTC
-            details: description,
-            location: 'Location of the event',
-        };
-        const url = `https://www.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(eventDetails.text)}&dates=${eventDetails.dates}&details=${encodeURIComponent(eventDetails.details)}&location=${encodeURIComponent(eventDetails.location)}`;
-        window.open(url, '_blank');
-    };
+      toast({
+        description: `Todo ${todo ? "updated" : "created"} successfully 😊`,
+      });
+      fetchTasks();
+    } catch (error) {
+      toast({
+        description: `Error ${todo ? "updating" : "creating"} todo: ${error.message}`,
+      });
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
-    const handleAddToAppleCalendar = () => {
-        const event = {
-            title: title,
-            start: [0, 0 , 0, 0, 0],
-            end: [0, 0 , 0 , 0, 0],
-            description: description,
-            location: '',
-        };
-    
-        createEvent(event, (error, value) => {
-            if (error) {
-                console.error(error);
-                return;
-            }
-    
-            const blob = new Blob([value], { type: 'text/calendar' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'event.ics';
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            URL.revokeObjectURL(url); // Clean up the URL
-        });
-    };
+  const handleDialogClose = () => {
+    setTodoData(todo ? { ...todo } : initialTodoState);
+  };
 
-    
-
+  const formatDate = (date) => {
     return (
-        <Dialog onOpenChange={(isOpen) => !isOpen && handleDialogClose()}>
-            <DialogTrigger asChild>
-                <Button
-                    variant={btnText === "Add Todo" ? "secondary" : "ghost"}
-                >
-                    {btnText === "Add Todo" ? "Add To Do" : (<Image src={editIcon} alt="Edit" width={16} height={16} />)}
-                </Button>
-            </DialogTrigger>
-            <DialogContent className="w-11/12 max-w-11/12 sm:max-w-[425px] bg-[#0a0a0a] border-gray-500">
-                <DialogHeader>
-                    <DialogTitle>{btnText === "Add Todo" ? "Add To Do" : "Edit To Do"}</DialogTitle>
-                    <DialogDescription>
-                        Make changes to your To-Do here. Click {btnText === "Add Todo" ? "add" : "edit"} when you&apos;re done.
-                    </DialogDescription>
-                </DialogHeader>
-                <div className="grid gap-4 py-4">
-                    <div className="grid grid-cols-1 sm:grid-cols-4 items-center gap-4">
-                        <label htmlFor="title" className="sr-only">Task Title</label>
-                        <Input
-                            id="title"
-                            placeholder="Task Title"
-                            value={title}
-                            onChange={(e) => setTitle(e.target.value)}
-                            className="col-span-3 w-full"
-                        />
-                    </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-4 items-center gap-4">
-                        <label htmlFor="description" className="sr-only">Task Description</label>
-                        <Input
-                            id="description"
-                            placeholder="Task Description"
-                            value={description}
-                            onChange={(e) => setDescription(e.target.value)}
-                            className="col-span-3 w-full"
-                        />
-                    </div>
-                    <div>
-                        <StatusSelector setStatus={setStatus} status={status} />
-                    </div>
-                    <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-                        <DatePicker setDueDate={setDueDate} dueDate={dueDate} className="w-full sm:w-auto" />
-                        <PrioritySelector setPriority={setPriority} priority={priority} className="w-full sm:w-auto" />
-                    </div>
-                </div>
-                <DialogFooter className="flex justify-between">
-                <div className="flex space-x-2">
-      <Button 
-        type="button" 
-        onClick={handleAddToGoogleCalendar} 
-        className="w-full sm:w-auto flex items-center justify-center space-x-2"
-      >
-        <FaGoogle className="h-5 w-5" />
-      </Button>
-      <Button 
-        type="button" 
-        onClick={handleAddToAppleCalendar} 
-        className="w-full sm:w-auto flex items-center justify-center space-x-2"
-      >
-        <FaApple className="h-5 w-5" />
-      </Button>
-    </div>
-    <DialogClose asChild>
-        <Button type="button" onClick={handleSubmit} className="w-full sm:w-auto">
-            {btnText === "Add Todo" ? "Add" : "Edit"}
-        </Button>
-    </DialogClose>
-</DialogFooter>
-            </DialogContent>
-        </Dialog>
+      new Date(date).toISOString().replace(/[-:]/g, "").split(".")[0] + "Z"
     );
+  };
+
+  const handleAddToCalendar = (calendarType) => {
+    const { title, description, dueDate } = todoData;
+    const formattedDate = formatDate(dueDate);
+
+    if (calendarType === "google") {
+      const url = `https://www.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&dates=${formattedDate}/${formattedDate}&details=${encodeURIComponent(description)}`;
+      window.open(url, "_blank");
+    } else if (calendarType === "apple") {
+      const event = {
+        title,
+        description,
+        start: [
+          dueDate.getFullYear(),
+          dueDate.getMonth() + 1,
+          dueDate.getDate(),
+        ],
+        duration: { hours: 1 },
+      };
+
+      createEvent(event, (error, value) => {
+        if (error) {
+          toast({
+            description: `Error creating Apple Calendar event: ${error.message}`,
+          });
+          return;
+        }
+        const blob = new Blob([value], { type: "text/calendar" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "event.ics";
+        a.click();
+        URL.revokeObjectURL(url);
+      });
+    }
+  };
+
+  return (
+    <Dialog onOpenChange={(isOpen) => !isOpen && handleDialogClose()}>
+      <DialogTrigger asChild>
+        <Button variant={btnText === "Add Todo" ? "secondary" : "ghost"}>
+          {btnText === "Add Todo" ? (
+            "Add To Do"
+          ) : (
+            <Image src={editIcon} alt="Edit" width={16} height={16} />
+          )}
+        </Button>
+      </DialogTrigger>
+      <DialogContent className="w-11/12 max-w-11/12 sm:max-w-[425px] bg-[#0a0a0a] border-gray-500">
+        <DialogHeader>
+          <DialogTitle>
+            {btnText === "Add Todo" ? "Add To Do" : "Edit To Do"}
+          </DialogTitle>
+          <DialogDescription>
+            Make changes to your To-Do here. Click{" "}
+            {btnText === "Add Todo" ? "add" : "edit"} when you&apos;re done.
+          </DialogDescription>
+        </DialogHeader>
+        <form onSubmit={handleSubmit} className="grid gap-4 py-4">
+          <Input
+            name="title"
+            placeholder="Task Title"
+            value={todoData.title}
+            onChange={handleInputChange}
+            className="w-full"
+          />
+          <Input
+            name="description"
+            placeholder="Task Description"
+            value={todoData.description}
+            onChange={handleInputChange}
+            className="w-full"
+          />
+          <StatusSelector
+            setStatus={(status) => setTodoData((prev) => ({ ...prev, status }))}
+            status={todoData.status}
+          />
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+            <DatePicker
+              setDueDate={(dueDate) =>
+                setTodoData((prev) => ({ ...prev, dueDate }))
+              }
+              dueDate={todoData.dueDate}
+              className="w-full sm:w-auto"
+            />
+            <PrioritySelector
+              setPriority={(priority) =>
+                setTodoData((prev) => ({ ...prev, priority }))
+              }
+              priority={todoData.priority}
+              className="w-full sm:w-auto"
+            />
+          </div>
+          <DialogFooter className="flex justify-between">
+            <div className="flex space-x-2">
+              <Button
+                type="button"
+                onClick={() => handleAddToCalendar("google")}
+                className="w-full sm:w-auto flex items-center justify-center space-x-2"
+              >
+                <FaGoogle className="h-5 w-5" />
+              </Button>
+              <Button
+                type="button"
+                onClick={() => handleAddToCalendar("apple")}
+                className="w-full sm:w-auto flex items-center justify-center space-x-2"
+              >
+                <FaApple className="h-5 w-5" />
+              </Button>
+            </div>
+            <Button
+              type="submit"
+              disabled={isLoading}
+              className="w-full sm:w-auto"
+            >
+              {isLoading
+                ? "Processing..."
+                : btnText === "Add Todo"
+                  ? "Add"
+                  : "Edit"}
+            </Button>
+          </DialogFooter>
+        </form>
+      </DialogContent>
+    </Dialog>
+  );
 };
 
 export default AddEditTodoDialog;
